@@ -1,0 +1,36 @@
+.article__formsignup {
+  width: 35%;
+  margin: auto; }
+
+.btn-signup {
+  text-align: center;
+  width: 170px;
+  margin-left: 185px;
+  background-color: #d39871;
+  border: none; }
+
+.btn-signup:hover {
+  background-color: #c5743f; }
+
+.form-check-input-female {
+  margin-left: 15px; }
+
+.label--text {
+  z-index: 99999999;
+  font-size: 17px; }
+
+.size--input-signup {
+  height: 60px !important;
+  background-color: #e0e2e3; }
+
+.gap--forgender {
+  gap: 50px; }
+
+.title__signup {
+  margin: 0 170px;
+  color: #c5743f;
+  border-width: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #cc5c11;
+  margin-bottom: 20px; }

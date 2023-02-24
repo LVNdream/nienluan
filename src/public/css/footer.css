@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.articleFooter {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between; }
+
+.infor__logo--footer {
+  height: 60px;
+  width: 150px; }
+
+.listfooter {
+  list-style-type: none;
+  padding: 0px;
+  margin-bottom: 5px; }
+
+.infor__ỉntroduce {
+  margin-bottom: 5px; }
+
+.listfooter__selectors {
+  margin-bottom: 5px; }
+
+.footer__numberphone {
+  margin-bottom: 5px; }
+
+.footer__email {
+  margin-bottom: 10px; }
+
+.icons--number {
+  color: #c39678;
+  font-size: 20px;
+  margin-right: 10px; }
+
+.icons--email {
+  color: #c39678;
+  font-size: 20px;
+  margin-right: 10px; }
+
+.title {
+  font-size: 22px;
+  color: #c39678;
+  font-family: 'Times New Roman', Times, serif; }
+
+.infor {
+  margin-right: 50px;
+  flex: 1; }
+
+.location {
+  margin-right: 50px;
+  flex: 1; }
+
+.help {
+  margin-right: -50px;
+  flex: 1; }
+
+.careclient {
+  margin-right: -50px;
+  flex: 1; }
+
+.careclient__icons {
+  display: flex; }
+
+.iconFacebook {
+  color: #c39678;
+  font-size: 25px;
+  margin: 0px 5px; }
+
+.iconInstagram {
+  color: #c39678;
+  font-size: 25px;
+  margin: 0px 5px; }

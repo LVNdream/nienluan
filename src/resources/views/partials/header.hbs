@@ -1,0 +1,251 @@
+<header class="container">
+    <div class="titleFS">
+        <p class="titleFS_IF">Miễn phí vận chuyển cho đơn hàng trên <strong>300k</strong></p>
+        </p>
+    </div>
+    <div class="mainheader">
+        <div class="nameshop">
+            <h1 class="titleNS">HOMESHOP</h1>
+        </div>
+        <ul class="nav__options">
+            <li><a class="list_link" href="/admin/showdashboard">
+                    <i class="fa-solid fa-user-secret iconUser--color icon__selector icos__user"></i></a>
+            </li>
+            <li class="option-of__nav"><a class="list_link" href="/home">Trang chủ</a></li>
+            <li class="option-of__nav option-of__nav--deep">
+                <a class="list_link" href="/fashion/menfashion">Thời trang nam <i
+                        class="down fa-solid fa-angle-down"></i></a>
+                <ul class="list--fashion">
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo thun</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo sơ mi</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo khoác, áo nỉ, áo len</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Quần dài</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Quần short</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Giảm giá</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="option-of__nav option-of__nav--deep">
+                <a class="list_link" href="">Thời trang nữ <i class="down fa-solid fa-angle-down"></i></a>
+                <ul class="list--fashion">
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo thun</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo sơ mi</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo 2 dây</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Áo khoác, áo nỉ, áo len</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Quần short</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Quần dài</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Chân váy</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Đầm</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="option-of__nav"><a class="list_link" href="">Phụ kiện</a></li>
+            <li class="option-of__nav option-of__nav--deep  ">
+                <a class="list_link" href="">Thông tin <i class="down fa-solid fa-angle-down"></i></a>
+                <ul class="list--fashion">
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Liên hệ</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="/account/checkOrdered" class="list--fashion__link">Kiểm tra đơn hàng</a>
+                    </li>
+                    <li class="list--fashion__selectors">
+                        <a href="" class="list--fashion__link">Chính sách đổi hàng</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="nav__icons">
+            <div class="icon__selector icon__search">
+                <div class="search" id="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="formsearch" id="formsearch">
+                    <h3>Tìm kiếm</h3>
+                    <hr>
+                    <div class="formsearch__input">
+                        <input type="text" id="inputsearch5" class="form-control"
+                            placeholder="Nhập sản phẩm cần tìm... ">
+                        <i class="fa-solid fa-magnifying-glass search-in-input"></i>
+                    </div>
+                    <div id="cancle--search">
+                        <p class="text--cancle--search">x</p>
+                    </div>
+                </div>
+            </div>
+            {{!-- hình User --}}
+            {{#if lcIsAuthenticated}}
+            <div class="alert alert-success welcome__user" role="alert">
+                xin chào, {{lcAuthUser.ho}} {{lcAuthUser.ten}}
+            </div>
+            <div class="dropdown">
+
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user iconUser--color"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+                    <li><a class="dropdown-item" href="/account/checkOrdered">Kiểm tra đơn hàng</a></li>
+                    <li><a class="dropdown-item" href="#">Đổi mật khẩu</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <form class="dropdown-item" method="POST" action="/account/logout"><button type="submit"
+                                class="btn btn-light form-control">Đăng xuất</button></form>
+                    </li>
+                </ul>
+            </div>
+            {{else}}
+
+            <div class="icon__selector icos__user">
+                <div class="account " id="account">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="formacc container" id="formacc">
+                    <h5 class="acc__title">ĐĂNG NHẬP TÀI KHOẢN</h5>
+                    <P class="acc__require">Nhập email và mật khẩu của bạn:</P>
+                    <hr>
+                    <form method="POST" action="/account/login" class="needs-validation" novalidate>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control size--input" id="floatingInput" name="email"
+                                placeholder="name@example.com" required>
+                            <label class="label--text" for="floatingInput">Email</label>
+                            <div class="valid-feedback content--feedback">
+                                Bạn đã nhập Email, vui lòng xem lại thông tin trước khi submit!
+                            </div>
+                            <div class="invalid-feedback content--feedback">
+                                Bạn vui lòng nhập Email!
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control size--input" id="floatingPassword" name="matkhau"
+                                placeholder="Password" required>
+                            <label class="label--text" for="floatingPassword">Password</label>
+                            <div class="valid-feedback content--feedback">
+                                Bạn đã nhập mật khẩu, vui lòng xem lại thông tin trước khi submit!
+                            </div>
+                            <div class="invalid-feedback content--feedback">
+                                Bạn vui lòng nhập mật khẩu!
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-account">Đăng nhập</button>
+                    </form>
+                    <p class="rules">This site is protected by reCAPTCHA and the <a
+                            href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>
+                        and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</p>
+                    <p class="signup">Khách hàng mới? <a href="/account/register" class="link--signup ">Tạo tài
+                            khoản</a></p>
+                    <p class="forgetpass">Quên mật khẩu <a href="" class="link--forgetpass"> Khôi phục mật khẩu</a></p>
+                    <div id="cancle--acc">
+                        <p class="text--cancle--acc">x</p>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            {{!-- --}}
+            <div class="icon__selector icon__cart">
+                <div class="cart-items" id="cart-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p class="number-items">0</p>
+                </div>
+                <div class="watch-cart container" id="watch-cart">
+                    <h5>GIỎ HÀNG</h5>
+                    <hr>
+                    <div class="customerCart">
+                        <p class="noItemInCart">Hiện chưa có sản phẩm</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center money">
+                        <h5>TỔNG TIỀN:</h5>
+                        <p class="cost">0</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/cart"><button type="submit" class="btn btn-cart btn-danger">XEM GIỎ HÀNG</button></a>
+                        <button type="submit" class=" btn btn-cart btn-danger" id="btn--pay">THANH TOÁN</button>
+                    </div>
+                    <div id="cancle--cart">
+                        <p class="text--cancle--cart">x</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/header.js"></script>
+
+    <script>
+        //thêm sản phẩm vào chỗ ấn giỏ hàng
+        $(document).ready(function () {
+            if (JSON.parse(localStorage.getItem('cartItems')).length != 0) {
+                const localCart = JSON.parse(localStorage.getItem('cartItems'));
+                const cartHTML = $('.customerCart');
+                const costHTML = $('.cost');
+                let numberCost = 0;
+                let countItem = 0;
+                localCart.forEach(item => {
+                    //console.log(item.picture);
+                    numberCost = numberCost + parseInt(item.price) * item.quantity;
+                    //console.log(item.price);
+                    countItem = countItem + item.quantity
+                });
+                cartHTML.html('');
+                costHTML.html('');
+                cartHTML.append($(`<p class="noItemInCart">Hiện đang có ${countItem} trong giỏ hàng </p>`));
+                costHTML.html(`${numberCost}`);
+
+
+            }
+        });
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+    {{#section 'js'}}
+    {{/section}}
+</header>

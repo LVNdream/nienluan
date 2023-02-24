@@ -1,0 +1,84 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/checkOrdered.css">
+{{/section}}
+<div>
+
+    <div class="float-end">
+        <div class="alert alert-success welcome__user" role="alert">
+            xin chào Admin, {{inforAdmin.ho}} {{inforAdmin.ten}}
+        </div>
+        <div class="dropdown">
+
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-secret iconUser--color"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+                <li><a class="dropdown-item" href="/admin/showdashboard">Cập nhật hóa đơn</a></li>
+                <li><a class="dropdown-item" href="/admin/updateproduct">Cập nhật số lượng sản phẩm</a></li>
+                <li><a class="dropdown-item" href="/admin/addproduct">Thêm sản phẩm</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <form class="dropdown-item" method="POST" action="/admin/logoutAD"><button type="submit"
+                            class="btn btn-light form-control">Đăng xuất</button></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="aritcle__infor" class="container">
+        {{#if AllProduct}}
+        {{#each AllProduct}}
+        <form action="/admin/showdashboard/updateProduct" method="post">
+            <div class="inforOrder">
+
+
+                <div class="mb-3">
+                    <div class="mb-3" hidden>
+                        <label for="exampleFormControlInput1" class="form-label">Mã sẩn phẩm</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com" name="masp" value="{{masp}}" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Tên</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput2"
+                            placeholder="name@example.com" value="{{tensp}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label">Avata</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput3"
+                            placeholder="name@example.com" value="{{avata}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput4" class="form-label">Giá</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput4"
+                            placeholder="name@example.com" value="{{giasp}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput5" class="form-label">Số lượng sản phẩm</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput5"
+                            placeholder="name@example.com" name="soluongsp" value="{{soluongsp}}">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around mt-3">
+                    <button class="btn btn-danger" type="submit">Cập nhật</button>
+                </div>
+                <hr>
+            </div>
+
+        </form>
+
+
+        {{/each}}
+        {{else}}
+        <div>
+            Bạn chưa sản phẩm
+        </div>
+        {{/if}}
+    </div>
+
+</div>

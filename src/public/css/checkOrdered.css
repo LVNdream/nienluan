@@ -1,0 +1,35 @@
+#aritcle__infor {
+  border: 3px solid #c49d5a;
+  width: 50%;
+  height: 600px;
+  padding: 20px;
+  overflow: scroll; }
+
+.idOrder {
+  margin-bottom: 20px; }
+
+.inforOrder--customer p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px; }
+
+.statusOrder {
+  margin: 15px 0px;
+  color: #65c465; }
+
+.inforOrder {
+  margin-bottom: 50px;
+  border: 1px dashed black;
+  padding: 10px; }
+
+.inforProduct p {
+  margin-bottom: 5px;
+  font-size: 15px; }
+
+.listItem p {
+  font-size: 15px; }
+
+.tongtien {
+  font-size: 17px;
+  font-weight: 400;
+  color: red; }

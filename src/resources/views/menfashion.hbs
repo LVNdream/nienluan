@@ -1,0 +1,75 @@
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/menfashion.css">
+{{/section}}
+<div class="frame--intruduce">
+    <!-- <img class="framepicture__picturemain" src="img/slide_1_img.webp" alt="loading"> -->
+</div>
+<main class="container pb-5">
+
+    <div class="mt-2">
+        <h2>Men fashion</h2>
+    </div>
+    <div class="product mt-2 d-flex flex-wrap">
+
+        {{#if this.empty}}
+
+        <div>
+            <p>Không sản có sản phẩm được tải lên</p>
+        </div>
+
+        {{else}}
+
+        {{#each this.product}}
+
+        <div class="product__item">
+            <div class="avata--product">
+                <a class="avata__link" href="#"><img class="img-fluid avata__link--product"
+                        src="{{avata}}"
+                        alt="" title="ÁO SƠ MI HỒNG TAY NGẮN TRẺ TRUNG"> </a>
+            </div>
+            <div class="item-infor">
+                <p class="item-id" hidden>00{{masp}}</p>
+                <p class="item-name">{{tensp}}</p>
+                <p class="item-price">{{giasp}}</p>
+                <div class="d-flex size--selection">
+                    <div>
+                        <input type="radio" id="size1" name="itemSize" value="S">
+                        <label for="size1">S</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="size2" name="itemSize" value="M">
+                        <label for="size2">M</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="size3" name="itemSize" value="L">
+                        <label for="size3">L</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="size4" name="itemSize" value="XL">
+                        <label for="size4">XL</label>
+                    </div>
+                </div>
+                <div class="show--cart">
+                    <div class="cart d-flex justify-content-around">
+                        <div class="cart__shopping ">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div class="bag__shopping text-center ">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+        {{/if}}
+
+    </div>
+</main>
+
+{{#section 'js'}}
+<script src="/js/menfashion.js"></script>
+{{/section}}

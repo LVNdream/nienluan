@@ -1,0 +1,69 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/checkOrdered.css">
+{{/section}}
+<div>
+
+    <div class="float-end">
+        <div class="alert alert-success welcome__user" role="alert">
+            xin chào Admin, {{inforAdmin.ho}} {{inforAdmin.ten}}
+        </div>
+        <div class="dropdown">
+
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-secret iconUser--color"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+                <li><a class="dropdown-item" href="/admin/showdashboard">Cập nhật hóa đơn</a></li>
+                <li><a class="dropdown-item" href="/admin/updateproduct">Cập nhật số lượng sản phẩm</a></li>
+                <li><a class="dropdown-item" href="/admin/addproduct">Thêm sản phẩm</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <form class="dropdown-item" method="POST" action="/admin/logoutAD"><button type="submit"
+                            class="btn btn-light form-control">Đăng xuất</button></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="aritcle__infor" class="container">
+        <form action="/admin/showdashboard/addProduct" method="post">
+            <div class="inforOrder">
+
+
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Tên</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput2"
+                             name="tensp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label">Avata</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput3"
+                             name="avata">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput4" class="form-label">Giá</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput4"
+                             name="giasp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput5" class="form-label">Số lượng sản phẩm</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput5"
+                             name="soluongsp">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around mt-3">
+                    <button class="btn btn-danger" type="submit">Thêm sản phẩm</button>
+                </div>
+                <hr>
+            </div>
+
+        </form>
+    </div>
+
+</div>

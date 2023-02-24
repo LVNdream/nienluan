@@ -1,0 +1,171 @@
+.pay--infor {
+  margin-left: 60px;
+  margin-right: 50px; }
+
+.tilte--pay {
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 15px; }
+
+.link--to--cart {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif; }
+
+.link--to--cart:hover {
+  color: #985353; }
+
+.tilte--pay p {
+  margin-bottom: 0; }
+
+.email_and_phone--gap {
+  gap: 20px; }
+
+.input-email {
+  width: 420px; }
+
+.input--infor {
+  border-radius: 0px; }
+
+.ship--type {
+  margin-left: 10px;
+  padding: 0.5em;
+  -webkit-appearance: none;
+  outline: 0.1em solid #0a6393;
+  outline-offset: 0.1em; }
+
+.ship--type:hover {
+  cursor: pointer; }
+
+.ship--type:checked {
+  display: inline-block;
+  background-color: #338dbc; }
+
+.label--shipType {
+  margin-left: 10px; }
+
+.buy--in--wed {
+  padding: 15px;
+  border: 2px solid #ced4da; }
+
+.buy--in--shop {
+  padding: 15px;
+  border: 2px solid #ced4da; }
+
+.article__customer--address {
+  border: 2px solid #ced4da;
+  padding: 25px;
+  background-color: #e1e5e7;
+  border-top: none; }
+
+.choose--province {
+  gap: 20px; }
+
+.article__shop--address {
+  padding: 25px 5px;
+  text-align: center;
+  background-color: #e1e5e7;
+  border: 2px solid #ced4da;
+  border-top: none; }
+
+.article__shop--address h6 {
+  color: #434242;
+  font-size: 15px;
+  font-weight: 500; }
+
+.pay--by--card {
+  padding: 15px;
+  border: 2px solid #ced4da; }
+
+.pay--by--money {
+  padding: 15px;
+  border: 2px solid #ced4da; }
+
+.pay--type {
+  margin-left: 10px;
+  padding: 0.5em;
+  -webkit-appearance: none;
+  outline: 0.1em solid #0a6393;
+  outline-offset: 0.1em; }
+
+.pay--type:hover {
+  cursor: pointer; }
+
+.pay--type:checked {
+  display: inline-block;
+  background-color: #338dbc; }
+
+.label--payType {
+  margin-left: 10px; }
+
+.icon--credit-card {
+  margin-left: 10px; }
+
+.icon--pay-money {
+  margin-left: 10px; }
+
+.infor--bank-card {
+  border: 2px solid #ced4da;
+  padding: 25px;
+  background-color: #e1e5e7;
+  border-top: none; }
+
+.article--customer-note {
+  background-color: #e1e5e7;
+  padding: 20px; }
+
+.btn-comleteOddered {
+  background-color: #0a6393d1; }
+
+.btn-comleteOddered:hover {
+  background-color: #025e8f; }
+
+.article--review-ordered {
+  margin-top: 60px;
+  padding-left: 50px; }
+
+.picture {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px; }
+
+.article--inforItem {
+  position: relative;
+  gap: 10px; }
+
+.article--inforItem--name {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100; }
+
+.article--inforItem--size {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100; }
+
+.article--inforItem--money {
+  font-weight: 500;
+  color: red;
+  margin-left: 220px; }
+
+.article--inforItem--quantity {
+  color: #ffffff;
+  position: absolute;
+  top: -20%;
+  left: 8%;
+  padding: 1px 5px;
+  margin: 0px;
+  background-color: #a7a8a9; }
+
+.color--money {
+  color: red;
+  font-weight: 500; }
+
+.title--bill {
+  color: #6a6a6a;
+  font-weight: 500; }
+
+.article--layout1 {
+  border-right: 1px solid black; }

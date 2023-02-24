@@ -1,0 +1,65 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/checkOrdered.css">
+{{/section}}
+<div id="aritcle__infor" class="container">
+    {{#if issetHD}}
+    {{#each ArrayProduct}}
+    <div class="inforOrder">
+        <h5 class="idOrder">Mã đơn hàng: {{idhd}}</h5>
+        <div class="inforOrder--customer">
+            <p>Ngày mua: {{ngaylaphd}}</p>
+            <p>Họ và tên: {{hovaten}}</p>
+            {{#if diachichitiet}}
+            <p>Địa chỉ giao: {{diachichitiet}}</p>
+            {{else}}
+            <p>{{nhanhang}}</p>
+            {{/if}}
+        </div>
+        <h6 class="statusOrder">Trạng thái đơn hàng: <b class="trangthai">{{trangthai}}</b></h6>
+        {{#each listItem}}
+
+        <div class="d-flex justify-content-between mb-2 mr-5 listItem">
+            <div>
+                <p>Sản phẩm: SP{{masp}}, {{tensp}}, {{giasp}}, {{size}}</p>
+            </div>
+            <div>
+                <img style="height: 50px ; withd:50px" src="{{avata}}">
+            </div>
+        </div>
+
+        {{/each}}
+
+        <div class="d-flex justify-content-around mt-3">
+            <p class="tongtien">Tổng tiền: {{tongtien}}</p>
+            <form action="/account/checkOrdered/deleteHD" method="post">
+                <input type="text" class="form-control" id="exampleFormControlInputHUYHD" placeholder="name@example.com"
+                        name="idhd" value="{{idhd}}" hidden>
+                <button class="btn btn-danger btnCanlce_HoaDon" type="submit" >HỦY ĐƠN</button>
+            </form>
+        </div>
+        <hr>
+    </div>
+
+
+
+    {{/each}}
+    {{else}}
+    <div>
+        Bạn chưa có đơn hàng
+    </div>
+    {{/if}}
+</div>
+
+{{#section 'js'}}
+<script>
+    const trangthai = document.getElementsByClassName('trangthai');
+    const canlce = document.getElementsByClassName('btnCanlce_HoaDon');
+    for (let i = 0; i < trangthai.length; i++){
+        if((trangthai[i].textContent[0])!='C'){
+            canlce[i].setAttribute('disabled',true);
+        }
+    }
+    console.log(canlce)
+    
+</script>
+{{/section}}

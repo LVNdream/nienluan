@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Nhap/blog"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": null
+	}
+}

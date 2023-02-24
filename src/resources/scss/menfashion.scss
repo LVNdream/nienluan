@@ -1,0 +1,70 @@
+.frame--intruduce{
+    position: relative;
+    height: 530px;
+    width: 100%;
+    background-image: url('/img/collection_banner.webp');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+}
+.product__item{
+  position: relative;
+  height: 490px;
+  width: 300px;
+  margin: 10px;
+}
+.item-name{
+  margin-bottom: 10px;
+}
+.money{
+  margin-bottom: 10px;
+}
+.size--selection{
+  gap :15px;
+}
+.item-infor{
+  position: absolute;
+  width: 100%;
+}
+.show--cart{
+  display: none;
+  height: 40px;
+  font-size: 25px;
+  background-color:#a89182;
+  border-radius: 5px;
+}
+.cart__shopping{
+  color:#fff;
+}
+.cart__shopping:hover{
+  color:rgba(42, 35, 33, 0.882);
+  cursor: pointer;
+}
+.bag__shopping:hover{
+  color:rgb(145, 127, 91);
+  cursor: pointer;
+}
+.bag__shopping{
+  width: 50px;
+  color:#ffffff;
+  background-color: rgba(42, 35, 33, 0.882);
+  border-radius: 5px;
+  padding: 0;
+}
+.product__item:hover .show--cart{
+  display: block;
+}
+.product__item:hover .item-infor{
+  animation:showcart linear 0.5s forwards ;
+  background-color: rgba(255, 255, 255, 0.674);
+}
+@keyframes showcart {
+  from{
+  opacity: 0;
+  bottom: 0%;
+  }
+  to{
+  opacity: 1;
+  bottom: 10%;
+  }
+}

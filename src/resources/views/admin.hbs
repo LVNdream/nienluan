@@ -1,0 +1,87 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/checkOrdered.css">
+{{/section}}
+<div>
+    <div class="float-end">
+        <div class="alert alert-success welcome__user" role="alert">
+            xin chào Admin, {{inforAdmin.ho}} {{inforAdmin.ten}}
+        </div>
+        <div class="dropdown">
+
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton2"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-secret iconUser--color"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+                <li><a class="dropdown-item" href="/admin/showdashboard">Cập nhật hóa đơn</a></li>
+                <li><a class="dropdown-item" href="/admin/updateproduct">Cập nhật số lượng sản phẩm</a></li>
+                <li><a class="dropdown-item" href="/admin/addproduct">Thêm sản phẩm</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <form class="dropdown-item" method="POST" action="/admin/logoutAD"><button type="submit"
+                            class="btn btn-light form-control">Đăng xuất</button></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="aritcle__infor" class="container">
+        {{#if issetHD_Admin}}
+        {{#each AllOrder}}
+        <form action="/admin/showdashboard/updateStatus" method="post">
+            <div class="inforOrder">
+                <h5 class="idOrder">Mã đơn hàng: {{idhd}}</h5>
+                <div class="inforOrder--customer">
+                    <p>Ngày mua: {{ngaylaphd}}</p>
+                    <p>Họ và tên: {{hovaten}}</p>
+                    {{#if diachichitiet}}
+                    <p>Địa chỉ giao: {{diachichitiet}}</p>
+                    {{else}}
+                    <p>{{nhanhang}}</p>
+                    {{/if}}
+                </div>
+                <h6 class="statusOrder">Trạng thái đơn hàng: <b>{{trangthai}}</b></h6>
+                {{#each listItem}}
+
+                <div class="d-flex justify-content-between mb-2 mr-5 listItem">
+                    <div>
+                        <p>Sản phẩm: SP{{masp}}, {{tensp}}, {{giasp}}, {{size}}</p>
+                    </div>
+                    <div>
+                        <img style="height: 50px ; withd:50px" src="{{avata}}">
+                    </div>
+                </div>
+
+                {{/each}}
+
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Trạng thái cần cập nhật</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                        name="trangthai" value="{{trangthai}}" autofocus>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com"
+                        name="idhd" value="{{idhd}}" hidden>
+                </div>
+                <div class="d-flex justify-content-around mt-3">
+                    <p class="tongtien">Tổng tiền: {{tongtien}}</p>
+
+                    <button class="btn btn-danger" type="submit">Cập nhật</button>
+                </div>
+                <hr>
+            </div>
+
+        </form>
+
+
+        {{/each}}
+        {{else}}
+        <div>
+            Bạn chưa có đơn hàng
+        </div>
+        {{/if}}
+    </div>
+
+</div>

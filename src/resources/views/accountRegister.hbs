@@ -1,0 +1,139 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/accountRegister.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+    integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{/section}}
+<div class="article__formsignup">
+    <h3 class="title__signup">Tạo tài khoản</h3>
+    <p class="policy">Nếu bạn đã có tài khoản, vui lòng đăng nhập! <a href="/account/login"> Đăng nhập</a></p>
+    {{#if mesage1}}
+    <div class="alert alert-danger">{{mesage1}}</div>
+    {{/if}}
+    {{#if mesage2}}
+    <div class="alert alert-success">{{mesage2}}</div>
+    {{/if}}
+    <form class="needs-validation" id="signupForm" method="POST" action="" novalidate>
+        <div class="list-group">
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="floatingInputHo" name="ho" required>
+                <label class="label--text" for="floatingInputHo">Họ</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập họ, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập họ!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="floatingInputTen" name="ten" required>
+                <label class="label--text" for="floatingInputTen">Tên</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập tên, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập tên!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="floatingInputPhone" name="sodienthoai" required>
+                <label class="label--text" for="floatingInputPhone">Số điện thoại</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập số điện thoại, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập số điện thoại!
+                </div>
+            </div>
+            <div class="mb-4 d-flex">
+                <div class="">
+                    <input class="form-check-input" type="radio" name="gioitinh" id="gender1" value="Nam" required>
+                    <label class="form-check-label" for="gender1">Nam</label>
+                </div>
+                <div class="">
+                    <input class="form-check-input form-check-input-female" type="radio" name="gioitinh" id="gender2"
+                        value="Nu" required>
+                    <label class="form-check-label" for="gender2"> Nữ</label>
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng chọn giới tính!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="inputDOB" name="ngaysinh" required>
+                <label class="label--text" for="inputDOB">Ngày sinh: dd/mm/yyyy</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập ngày sinh, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập ngày sinh!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="email" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="floatingInputEmail" name="email" required>
+                <label class="label--text" for="floatingInputEmail">Email</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập Email, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập Email!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" class="form-control size--input-signup list-group-item list-group-item-action"
+                    id="floatingInputMatkhau" name="matkhau" required>
+                <label class="label--text" for="floatingInputMatkhau">Mật khẩu</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập mật khẩu, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập mật khẩu!
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger btn-signup">Đăng kí</button>
+    </form>
+</div>
+{{#section 'js'}}
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{{!-- để làm cái nhập ngày --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+    integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('#inputDOB').datetimepicker({
+        format: 'd/m/Y',
+        timepicker: false,
+        mask: true,
+        theme: 'dark',
+
+    });
+</script>
+{{/section}}

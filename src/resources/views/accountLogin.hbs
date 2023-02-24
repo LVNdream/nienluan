@@ -1,0 +1,73 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/accountLogin.css">
+{{/section}}
+<div class="m-auto articleLogin">
+    <h3 class="title__login">Đăng nhập</h3>
+    {{#if error}}
+     <div class="alert alert-danger mb-0">{{error}}</div>
+    {{/if}}
+
+    {{#if lcIsAuthenticated}}
+    <div class="alert alert-success">Bạn đã đăng nhập thành công !!!</div>
+    {{else}}
+     <div class="alert alert-danger">{{message}}</div>
+    {{/if}}
+
+    <form method="POST" action="" class="needs-validation" novalidate>
+        <div class="list-group">
+            <div class="form-floating mb-4">
+                <input type="email" class="form-control size--input-login list-group-item list-group-item-action"
+                    id="floatingInputEmail" name="email" required>
+                <label class="label--text" for="floatingInputEmail">Email</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập Email, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập Email!
+                </div>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" class="form-control size--input-login list-group-item list-group-item-action"
+                    id="floatingInputMatkhau" name="matkhau" required>
+                <label class="label--text" for="floatingInputMatkhau">Mật khẩu</label>
+                <div class="valid-feedback">
+                    Bạn đã nhập mật khẩu, vui lòng xem lại thông tin trước khi submit!
+                </div>
+                <div class="invalid-feedback">
+                    Bạn vui lòng nhập mật khẩu!
+                </div>
+            </div>
+        </div>
+        <p class="policy">This site is protected by reCAPTCHA and the <a href="https://policies.google.com/privacy"
+                target="_blank">Google Privacy Policy</a>
+            and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</p>
+        <p class="policy">Nếu bạn chưa có tài khoản, vui lòng tạo tài khoản! <a href="/account/register">Tạo tài
+                khoản</a></p>
+        <button type="submit" class="btn btn-danger btn-login">Đăng nhập</button>
+
+    </form>
+</div>
+{{#section 'js'}}
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{{/section}}

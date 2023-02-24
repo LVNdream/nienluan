@@ -1,0 +1,348 @@
+@charset "UTF-8";
+/*  css cho body */
+.frame--intruduce {
+  position: relative;
+  height: 530px;
+  width: 85%;
+  background-image: url("/img/slide_1_img.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: auto; }
+
+/* css cho cái about */
+.intruduce {
+  margin: 25px 190px;
+  display: flex;
+  justify-content: space-between; }
+
+.intruduce__left {
+  position: relative;
+  width: 555px;
+  height: 355px;
+  background-image: url("/img/categorybanner_1_img.webp");
+  background-size: 100% 100%;
+  margin-right: 10px; }
+
+.intruduce__animation1 {
+  display: none;
+  position: absolute;
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%; }
+
+.intruduce__animation2 {
+  display: none;
+  position: absolute;
+  background-color: rgba(241, 224, 213, 0.3);
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%;
+  right: 0; }
+
+@keyframes hieuungchiadoi {
+  from {
+    opacity: 0;
+    width: 0%; }
+  to {
+    opacity: 1;
+    width: 50%; } }
+
+@keyframes background--zoomin {
+  from {
+    background-size: 100% 100%; }
+  to {
+    background-size: 102% 105%; } }
+
+@keyframes hieuungmouseleave {
+  from {
+    opacity: 0;
+    width: 60%; }
+  to {
+    opacity: 1;
+    width: 0%; } }
+
+@keyframes background--zoomout {
+  from {
+    background-size: 102% 105%; }
+  to {
+    background-size: 100% 100%; } }
+
+/* .about__left:hover .about__animation1{
+    display: block;
+    animation: hieuungchiadoi1 linear .5s forwards;
+}
+.about__left:hover .about__animation2{
+    display: block;
+    animation: hieuungchiadoi2 linear .5s forwards;
+}
+.about__left:hover{
+    animation:background--zoomin ease-out 1.5s forwards ;
+} */
+.intruduce__right {
+  position: relative;
+  width: 555px;
+  height: 355px;
+  background-image: url("/img/categorybanner_2_img.webp");
+  background-size: 100% 100%;
+  margin-left: 10px; }
+
+/* .about__right:hover .about__animation1{
+    display: block;
+    animation: hieuungchiadoi1 linear .5s forwards;
+}
+.about__right:hover .about__animation2{
+    display: block;
+    animation: hieuungchiadoi2 linear .5s forwards;
+}
+.about__right:hover{
+    animation:background--zoomin ease-out 1.5s forwards ;
+} */
+.content-Intruduce--left {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  z-index: 999999999; }
+
+.content-Intruduce--right {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  z-index: 999999999; }
+
+.content-Intruduce__title1 {
+  font-size: 20px;
+  margin: 0;
+  color: #d4a776;
+  font-family: 'Times New Roman', Times, serif; }
+
+.content-Intruduce__title2 {
+  color: #847063;
+  margin-bottom: 15px; }
+
+.content-Intruduce__title3 {
+  font-size: 17px;
+  color: #d4a776;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px; }
+
+/* css cho button */
+.btn--seemore {
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 12px 48px;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 120px;
+  transition: opacity 0.2s ease;
+  user-select: none; }
+
+.btn--seemore {
+  width: 100px;
+  padding: 5px 15px; }
+
+.btn--seemore:hover {
+  opacity: 0.8;
+  color: #c39678; }
+
+.btn--seemore {
+  background-color: #69472f; }
+
+.intruduce__link-seemore {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 200; }
+
+.intruduce__link-seemore:hover {
+  color: #a7e150;
+  font-size: 17px;
+  font-weight: 200; }
+
+/* 
+  css cho thoi trang nam */
+/* Css cho hình thời trang nam */
+.avata {
+  position: relative; }
+
+.AvataMan__animation1 {
+  display: none;
+  position: absolute;
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%; }
+
+.AvataMan__animation2 {
+  display: none;
+  position: absolute;
+  background-color: rgba(241, 224, 213, 0.3);
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%;
+  right: 0; }
+
+/* Cho nữ */
+.AvataWoman__animation1 {
+  display: none;
+  position: absolute;
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%; }
+
+.AvataWoman__animation2 {
+  display: none;
+  position: absolute;
+  background-color: rgba(241, 224, 213, 0.3);
+  background-color: rgba(199, 199, 199, 0.2);
+  /* background-color: #000000; */
+  z-index: 999999;
+  width: 50%;
+  height: 100%;
+  right: 0; }
+
+/* !!!!!!_________!!!! */
+.article--menfashion {
+  margin: 20px 190px; }
+
+.article--womenfashion {
+  margin: 20px 190px; }
+
+.title--menfashion {
+  width: 100%;
+  height: auto;
+  text-align: center; }
+
+.title--womenfashion {
+  width: 100%;
+  height: auto;
+  text-align: center; }
+
+.title--fashion__link {
+  text-decoration: none;
+  color: #a0816c;
+  font-size: 28px;
+  font-size: 700;
+  font-family: 'Times New Roman', Times, serif; }
+
+.title--fashion__link:hover {
+  color: #b09583;
+  padding-bottom: 3px;
+  border-bottom: #b09583 3px solid; }
+
+.information__content {
+  text-align: center;
+  color: #b09583;
+  font-size: 17px;
+  font-weight: 200; }
+
+.avata--fashion {
+  width: 550px;
+  height: 600px; }
+
+.information__product {
+  display: flex;
+  justify-content: space-between; }
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 30px; }
+
+.product__items {
+  position: relative; }
+
+.avata__link {
+  z-index: 999999999; }
+
+.item-infor {
+  position: absolute;
+  width: 100%; }
+
+.item-name {
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #a2660c; }
+
+.money {
+  margin: 0px 10px; }
+
+.show--cart {
+  display: none;
+  margin: 0px 10px; }
+
+.cart {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-size: 20px;
+  color: #c0a593;
+  background-color: #c0a593;
+  border-radius: 5px;
+  margin-top: 10px; }
+
+.cart__shopping {
+  text-align: center;
+  margin-top: 5px;
+  color: #fff; }
+
+.cart__shopping:hover {
+  color: #917f5b;
+  cursor: pointer; }
+
+.bag__shopping {
+  width: 35px;
+  z-index: 999999;
+  background-color: #fff;
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px; }
+
+.bag__shopping:hover {
+  background-color: #917f5b;
+  cursor: pointer; }
+
+.product__items:hover .show--cart {
+  display: block; }
+
+/*  */
+/* Animation__showCarrt */
+@keyframes showcart {
+  from {
+    opacity: 0;
+    bottom: 0%; }
+  to {
+    opacity: 1;
+    bottom: 7%; } }
+
+/*  */
+/*  */
+.product__items:hover .item-infor {
+  animation: showcart linear .5s forwards;
+  background-color: rgba(255, 255, 255, 0.674); }
+
+/* thời trang nữ */
+.information--girl {
+  margin: 20px 190px; }
+
+/* .avata__link--girlfashion{
+    margin-left: 30px;
+} */
+.product--girl {
+  margin-left: 0px;
+  margin-right: 30px; }
+
+/*  */

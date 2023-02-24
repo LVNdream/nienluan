@@ -1,0 +1,133 @@
+// .article--infor{
+//     position: relative;
+// }
+main{
+    margin-bottom: 110px;
+}
+.title--cart{
+    text-align: center;
+    font-size: 25px;
+    color: #c39678;
+}
+.infor--order{
+    margin-top: 30px;
+    width: 385px;
+    height: 395px;
+    padding: 0px 5px;
+    // position: relative;
+    // top:-75px;
+    // left:820px;
+  
+}
+.ordered{
+    border: black 1px solid;
+}
+.ordered--title{
+    color: #c39678;
+    text-align: center;
+    margin-top: 15px;
+}
+.ordered--cost{
+    color:red;
+   text-align: right;
+   font-size: 25px;
+   margin: 0px;
+}
+.ordered ul{
+    font-size: 14px;
+    padding: 0px 20px;
+}
+.pay--button{
+    width: 350px;
+    height: 45px;
+    margin-bottom: 15px;
+    background-color: red;
+}
+.ordered--policy{
+    margin-top: 15px;
+    background-color: #d9edf7;
+}
+.ordered--policy h5{
+    padding-top: 12px;
+    font-size: 17px;
+}
+.ordered--policy p{
+    padding-bottom: 12px;
+    font-size: 15px;
+}
+// css cho khu vực số giỏ hàng
+.article--borderCart{
+    border-top: 1px solid rgb(205, 156, 116);
+
+}
+
+.article--main{
+    margin: 0 80px;
+}
+.article-productInCart{
+    position: relative;
+    width: 730px;
+    margin-right: 20px;
+}
+.itemCount{
+    margin-top: 28px;
+    text-align: center;
+    background-color: rgba(239, 237, 237, 0.893);
+    padding: 10px;
+}
+// css các sản phẩm trong giỏ  hàng
+.productIncart{
+    gap: 25px;
+}
+.productInCart--picture{
+    height: 105px;
+    width: 80px;
+}
+.productInCart--name{
+    margin-bottom: 0px;
+    font-size: 18px;
+    color:rgb(168,129,109);
+}
+.productInCart--size{
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 400;
+}
+// .productInCart--quantity{
+// }
+.input--quantity{
+    width: 35px;
+    height: 25px;
+    border: none;
+    text-align: center;
+}
+.buttonquantityDown{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border: none;
+}
+.buttonquantityUp{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border: none;
+}
+.productInCart--price{
+    margin-top: 10px;
+    font-weight: 500;
+}
+// delete sản phẩm
+.delete--product{
+    position: absolute;
+    right: -70px;
+    font-size: 23px;
+    color:#5f2727 ;
+}
+.delete--product:hover{
+    cursor: pointer;
+    color:#5f272790 ;
+    font-size: 25px;
+}
+
+

@@ -1,0 +1,58 @@
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/cart.css">
+{{/section}}
+<main class="container">
+    <h1 class="title--cart">Giỏ hàng của bạn</h1>
+    <div class=" article--main d-flex justify-content-between">
+        <div class="article-productInCart">
+            <p class="itemCount">Giỏ hàng của bạn đang trống</p>
+
+        </div>
+        <div class="infor--order ">
+            <div class="ordered container">
+                <h5 class="ordered--title">Thông tin đơn hàng</h5>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <h6 class="mt-2">Tổng tiền:</h6>
+                    <p class="ordered--cost fw-bold">0</p>
+                </div>
+                <hr>
+                <ul>
+                    <li>Phí vận chuyển sẽ được tính ở trang thanh toán.</li>
+                    <li>Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.</li>
+                </ul>
+                <a id="pay--link" href="/pay"><button type="submit" class=" btn btn-danger pay--button"
+                        id="pay--button">THANH TOÁN</button></a>
+            </div>
+            <div class="ordered--policy container">
+                <h5>Chính sách mua hàng:</h5>
+                <p>Hiện chúng tôi chỉ áp dụng thanh toán với đơn hàng có giá trị tối thiểu 0₫ trở lên.</p>
+            </div>
+        </div>
+    </div>
+    {{!-- Xác nhận để xóa --}}
+    <div id="delete-item-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bạn có muốn xóa không???</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Nhấn <strong>Đồng ý</strong> để xác nhận việc bạn chắc chắn xóa, và nhấn <strong>Hủy</strong> để
+                        hủy bỏ.</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-item" type="button" class="btn btn-danger">Đồng ý</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{{#section 'js'}}
+<script src="/js/cart.js"></script>
+{{/section}}
