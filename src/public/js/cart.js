@@ -40,7 +40,10 @@ function showCart() {
                             <div class="col-10">
                             <p hidden>${item.id}</p>
                             <h5 class="productInCart--name">${item.name}</h5>
-                            <p class="productInCart--size">${item.size}</p>
+                            <div class="d-flex itemStyle">
+                                <p class="productInCart--size">${item.size}</p>
+                                <p class="productInCart--color">${item.color}</p>
+                            </div>
                                 <div class="productInCart--quantity d-flex">
                                     <button class="buttonquantityDown" name="down">-</button>
                                     <input class="input--quantity" type="number" name="quantity" value="${item.quantity}" disabled>
@@ -67,10 +70,10 @@ function showCart() {
 $(document).ready(function () {
     showCart();
     /// tăng gaimr số lượng
-    function uppdateQuantityUp(id, quantity, size) {
+    function uppdateQuantityUp(id, quantity, size,color) {
         const localCart = JSON.parse(localStorage.getItem('cartItems'));
         localCart.forEach(item => {
-            if (item.id == id && item.size == size) {
+            if (item.id == id && item.size == size && item.color==color) {
                 item.quantity = quantity;
             }
         });
@@ -86,8 +89,11 @@ $(document).ready(function () {
 
         //console.log(clicked.parentElement.children[1])
         const id = clicked.parentElement.parentElement.children[0].textContent;
-        const size = clicked.parentElement.parentElement.children[2].textContent
-        uppdateQuantityUp(id, quantity, size);
+        //  console.log(clicked.parentElement.parentElement.children[2].children[0].textContent);
+        
+        const size = clicked.parentElement.parentElement.children[2].children[0].textContent;
+        const color = clicked.parentElement.parentElement.children[2].children[1].textContent;
+        uppdateQuantityUp(id, quantity, size,color);
         window.location.reload();
         //showCart();
     }
@@ -103,10 +109,10 @@ $(document).ready(function () {
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
     // giảm số lượng
-    function uppdateQuantityDown(id, quantity, size) {
+    function uppdateQuantityDown(id, quantity, size,color) {
         const localCart = JSON.parse(localStorage.getItem('cartItems'));
         localCart.forEach(item => {
-            if (item.id == id && item.size == size) {
+            if (item.id == id && item.size == size && color==item.color) {
                 item.quantity = quantity;
             }
         });
@@ -118,12 +124,13 @@ $(document).ready(function () {
         //console.log(clicked)
 
         const quantity = parseInt(clicked.parentElement.children[1].value) - 1;
-        console.log(quantity);
+        // console.log(quantity);
 
         //console.log(clicked.parentElement.children[1])
         const id = clicked.parentElement.parentElement.children[0].textContent;
-        const size = clicked.parentElement.parentElement.children[2].textContent
-        uppdateQuantityDown(id, quantity, size);
+        const size = clicked.parentElement.parentElement.children[2].children[0].textContent;
+        const color = clicked.parentElement.parentElement.children[2].children[1].textContent;
+        uppdateQuantityDown(id, quantity, size,color);
         window.location.reload();
         //showCart();
     }
@@ -139,15 +146,20 @@ $(document).ready(function () {
     // Xóa sản phẩm trong giỏ hàng
     let idDelete
     let sizeDelete
+    let colorDelete
     function deleteCart(evt) {
 
         const clickDelete = evt.target;
         const id = clickDelete.parentElement.previousElementSibling.children[0].textContent;
-        const size = clickDelete.parentElement.previousElementSibling.children[2].textContent;
-        idDelete = id
-        sizeDelete = size
+        // console.log(clickDelete.parentElement.previousElementSibling.children[2].children[0].textContent)
+        const size = clickDelete.parentElement.previousElementSibling.children[2].children[0].textContent;
+        const color = clickDelete.parentElement.previousElementSibling.children[2].children[1].textContent;
+        idDelete = id;
+        sizeDelete = size;
+        colorDelete = color;
         // console.log(id);
         // console.log(size);
+        // console.log(color);
         // let updatedCart = [];
         // let custommerCart = JSON.parse(localStorage.getItem('cartItems'));
         // console.log(custommerCart);
@@ -181,7 +193,7 @@ $(document).ready(function () {
         custommerCart.forEach(item => {
             //console.log(item);
             //console.log(item.size + size);
-            if (item.id == idDelete && item.size == sizeDelete) {
+            if (item.id == idDelete && item.size == sizeDelete && item.color == colorDelete) {
             }
             else {
                 updatedCart.push(item);

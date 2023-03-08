@@ -83,10 +83,10 @@ module.exports = {
         });
     },
     // hàm xóa dữ liệu trong database
-    delete: function (table, entity) {
-        const sql = `delete from ${table} where ?`;
+    delete: function (table, iduser,masp) {
+        const sql = `delete from ${table} where iduser =${iduser} and  masp = ${masp}   `;
         return new Promise(function (resolve, reject) {
-            pool.query(sql, entity, function (error, results) {
+            pool.query(sql, function (error, results) {
                 if (error) {
                     return reject(error);
                 }

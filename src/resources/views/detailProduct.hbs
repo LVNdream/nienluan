@@ -1,0 +1,39 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/detailProduct.css">
+{{/section}}
+<div class="container">
+    <div class="tilte-main">
+        <p class="title-content">Trang chủ -&#62; NOBITAHOME -&#62; {{ctproduct.tensp}}</p>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {{#if this.emptyCTSP}}
+            <div>
+                <p>Không sản có sản phẩm được tải lên</p>
+            </div>
+            {{else}}
+            <div class="">
+                <img class="picture-product" src="{{ctproduct.avata}}" alt="" title="ÁO SƠ MI HỒNG TAY NGẮN TRẺ TRUNG">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h5 class="product-name">NOBITAHOME - {{ctproduct.tensp}} - LVN_SP{{ctproduct.masp}}</h5>
+            <p class="product-code"><b>Mã sản phẩm:</b> LVN_SP{{ctproduct.masp}}</p>
+            <div class="d-flex article-price">
+                <div class="product-discount">
+                    <p class="discount-content">
+                        0%
+                    </p>
+                </div>
+                <div class="product-price">
+                    <p class="price-content">{{ctproduct.giasp}}đ</p>
+                </div>
+            </div>
+            <div class="mt-5">
+                <p>Màu sắc</p>
+            </div>
+
+        </div>
+        {{/if}}
+    </div>
+</div>

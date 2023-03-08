@@ -12,7 +12,7 @@ module.exports = {
     },
     selectCTHD: async function (idhd) {
         const rowCTOrder = await db.load(
-            `select chitiethd.masp,avata,tensp,giasp,soluong,size from ${TBL_CTHD},${TBL_PRODUCT} where chitiethd.masp=product.masp and chitiethd.idhd = '${idhd}'`
+            `select chitiethd.masp,avata,tensp,giasp,soluong,size,color from ${TBL_CTHD},${TBL_PRODUCT} where chitiethd.masp=product.masp and chitiethd.idhd = '${idhd}'`
             );
         if (rowCTOrder.length === 0) {
             return null;

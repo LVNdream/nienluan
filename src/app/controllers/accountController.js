@@ -137,6 +137,10 @@ class accountController {
     //console.log(ArrayProduct);
     res.render('checkOrdered', { ArrayProduct, issetHD });
   };
+  // Show danh sach yeu thich
+  // async showlistfavorite(req,res){
+  //   res.render('listfavorite');
+  // }
   ///////////////////////////
 
   logout(req, res) {

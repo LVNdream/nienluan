@@ -1,9 +1,9 @@
 {{#section 'css'}}
-<link rel="stylesheet" href="/css/menfashion.css">
+<link rel="stylesheet" href="/css/listfavorite.css">
 {{/section}}
-<div class="frame--intruduce">
+{{!-- <div class="frame--intruduce">
     <!-- <img class="framepicture__picturemain" src="img/slide_1_img.webp" alt="loading"> -->
-</div>
+</div> --}}
 <main class="container pb-5">
 
     <div class="mt-2">
@@ -14,7 +14,7 @@
         {{#if this.empty}}
 
         <div>
-            <p>Không sản có sản phẩm được tải lên</p>
+            <p>Không có sản phẩm yêu thích</p>
         </div>
 
         {{else}}
@@ -23,9 +23,8 @@
 
         <div class="product__item">
             <div class="avata--product">
-                <a class="avata__link" href="/fashion/menfashion/product/{{masp}}"><img
-                        class="img-fluid avata__link--product" src="{{avata}}" alt=""
-                        title="ÁO SƠ MI HỒNG TAY NGẮN TRẺ TRUNG"> </a>
+                <a class="avata__link" href="#"><img class="img-fluid avata__link--product" src="{{avata}}" alt=""
+                        title="{{tensp}}"> </a>
             </div>
             <div class="item-infor">
                 <p class="item-id" hidden>00{{masp}}</p>
@@ -38,19 +37,6 @@
                             <input type="radio" name="itemColor" value="{{mausac}}">
                             <label>{{mausac}}</label><br>
                         </div>
-                        <div>
-                            {{!-- <input type="radio" class="btn-check" name="itemcolor" id="mau{{mausac}}"
-                                autocomplete="off">
-                            <label class="btn btn-outline-success" for="mau{{mausac}}">{{mausac}}</label> --}}
-                            {{!-- <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
-                                autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
-                            --}}
-                        </div>
-                        {{!-- <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
-                            autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label> --}}
-
                         {{/each}}
                     </div>
                     <div class="d-flex size--selection mt-2">
@@ -81,28 +67,53 @@
                             <i class="fa-solid fa-bag-shopping"></i>
                         </div>
 
-                        {{#if favorite}}
-                        <div class="article--iconFavorite">
+                        <div class="article--iconFavorite d-flex">
                             <i class="fa-solid fa-heart isFavorite"></i>
+                            <div class="article--btnDelete">
+                                <form action="">
+                                    <input type="text" class="form-control" name="masp" value="{{masp}}" disabled
+                                        hidden>
+                                    <div class="btn btn btn-outline-danger btn--deleteFVR" data-bs-toggle="modal"
+                                        data-bs-target="#delete-confirm" data-bs-id="{{masp}}"> Xóa </div>
+                                </form>
+                            </div>
                         </div>
-                        {{else}}
-                        <div class="article--iconFavorite">
-                            <i class="fa-solid fa-heart iconFavorite"></i>
-                        </div>
-                        {{/if}}
                     </div>
                 </div>
             </div>
         </div>
 
         {{/each}}
+        {{!-- xác nhận xóa yêu thích --}}
+        <div class="modal" tabindex="-1" id="delete-confirm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn có chắc muốn xóa khỏi yêu thích</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn-delete-favorite" type="button" class="btn btn-danger">Xóa</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        {{!-- tao form ao de submit --}}
+       <form name="delete-favorite-form" method="POST">
+        <input id="valueInput-masp" name="masp" hidden>
+       </form>
         {{/if}}
+        
 
     </div>
 </main>
 
 {{#section 'js'}}
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/menfashion.js"></script>
+<script src="/js/listfavorite.js"></script>
 {{/section}}

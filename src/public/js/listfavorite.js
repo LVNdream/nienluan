@@ -1,4 +1,26 @@
 
+var masp;
+var inputValue = document.getElementById('valueInput-masp');
+var deleteFavoriteForm = document.forms['delete-favorite-form'];
+var btnDeleteFavorite = document.getElementById('btn-delete-favorite');
+//Lấy id của khóa học khi nhấn đồng ý
+var deleteFavorite = document.getElementById('delete-confirm');
+deleteFavorite.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+    masp = button.getAttribute('data-bs-id');
+    console.log(masp);
+});
+
+// xoa khi an nut dong y
+// Khi bấm click vào nút Đồng ý   
+btnDeleteFavorite.onclick = function () {
+    // alert(idKhoahoc);
+    inputValue.setAttribute("value",masp);
+    deleteFavoriteForm.action = '/account/favorite/deleteId';
+    deleteFavoriteForm.submit()
+  }
+
+
 // let itemColor = document.getElementsByName('itemColor');
 // console.log(itemColor);
 // const axios = require('axios');
@@ -6,33 +28,35 @@
 // const { response } = require("express");
 
 // Hàm gửi yêu cầu lên server
-const fnaddFavorite = (evt) => {
-    axios.post('http://localhost:3001/fashion/menfashion/addFavorite', {
-        masp: evt.target.parentElement.parentElement.parentElement.parentElement.children[0].textContent,
-    }).then(function (response) {
-        // console.log(response.data);
-        if(response.data!=null){
-        let lognin = response.data;
-        window.location = lognin;
-        return}
-    })
-    .catch(function (error) {
-        console.log(error);
-    })
-}
 
-// Hàm thêm yêu thích
-const iconFavorite = document.getElementsByClassName('article--iconFavorite');
-function addFavorite(evt) {
-    // console.log(evt.target);
-    const favorite = evt.target;
-    fnaddFavorite(evt);
-    favorite.style.color = 'red';
-}
-const addListFavorite = evt => evt.addEventListener('click', addFavorite);
-let arrayIconFavorite = Array.from(iconFavorite);
-//console.log(arrayCartLinks);
-arrayIconFavorite.forEach(addListFavorite);
+
+// const fnaddFavorite = (evt) => {
+//     axios.post('http://localhost:3001/fashion/menfashion/addFavorite', {
+//         masp: evt.target.parentElement.parentElement.parentElement.parentElement.children[0].textContent,
+//     }).then(function (response) {
+//         // console.log(response.data);
+//         if(response.data!=null){
+//         let lognin = response.data;
+//         window.location = lognin;
+//         return}
+//     })
+//     .catch(function (error) {
+//         console.log(error);
+//     })
+// }
+
+// // Hàm thêm yêu thích
+// const iconFavorite = document.getElementsByClassName('article--iconFavorite');
+// function addFavorite(evt) {
+//     // console.log(evt.target);
+//     const favorite = evt.target;
+//     fnaddFavorite(evt);
+//     favorite.style.color = 'red';
+// }
+// const addListFavorite = evt => evt.addEventListener('click', addFavorite);
+// let arrayIconFavorite = Array.from(iconFavorite);
+// //console.log(arrayCartLinks);
+// arrayIconFavorite.forEach(addListFavorite);
 
 
 //Kiểm tra xem có sản phẩm đó trong giỏ hàng chưa

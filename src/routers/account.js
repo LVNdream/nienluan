@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const accountController = require('../app/controllers/accountController');
+const favoriteController = require('../app/controllers/listfavoriteController')
 
 // newsController.index
 
@@ -12,6 +13,8 @@ router.get('/login', accountController.showLoginTable);
 router.post('/login', accountController.logined);
 //trang kiểm tra đơn hàng
 router.get('/checkOrdered', accountController.restrict,accountController.showcheckOrdered);
+router.get('/favorite', accountController.restrict,favoriteController.showlistFavorite);
+router.post('/favorite/deleteId', accountController.restrict,favoriteController.deleteFavorite);
 /////////////////////
 router.post('/logout', accountController.restrict,accountController.logout);
 

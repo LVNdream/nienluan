@@ -13,11 +13,11 @@ $(document).ready(function () {
             const select = document.getElementsByTagName('select');
             const arrSelect = Array.from(select);
             const diachi = document.getElementById('floatingAddress');
-            diachi.setAttribute("required","false");
+            diachi.setAttribute("required", "false");
             //console.log(arrSelect);
             arrSelect.forEach(item => {
                 //console.log(item);
-                item.setAttribute("required","false");
+                item.setAttribute("required", "false");
             });
         }
 
@@ -79,7 +79,10 @@ $(document).ready(function () {
                 <div class="">
                     <p hidden>${item.id}</p>
                     <h5 class="article--inforItem--name">${item.name}</h5>
-                    <p class="article--inforItem--size">${item.size}</p>
+                    <div class="d-flex pay_itemStyle">
+                        <p class="article--inforItem--size">${item.size}</p>
+                        <p class="article--inforItem--color">${item.color}</p>
+                    </div>
                 </div>
                 <p class="article--inforItem--money">${money}</p>
                 <p class="article--inforItem--quantity">${item.quantity}</p>
@@ -119,6 +122,7 @@ $(document).ready(function () {
                 payForm.append($(`<input type="text" class="form-control input--infor" name="masp" value="${item.id}" hidden>`));
                 payForm.append($(`<input type="text" class="form-control input--infor" name="soluong" value="${item.quantity}" hidden>`));
                 payForm.append($(`<input type="text" class="form-control input--infor" name="size" value="${item.size}" hidden>`));
+                payForm.append($(`<input type="text" class="form-control input--infor" name="color" value="${item.color}" hidden>`));
             })
             payForm.append($(`<input type="text" class="form-control input--infor" name="tongtien" value="${tongtien}" hidden>`));
 

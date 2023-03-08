@@ -1,5 +1,6 @@
 {{#section 'css'}}
 <link rel="stylesheet" href="/css/checkOrdered.css">
+<link rel="stylesheet" href="/css/admin.css">
 {{/section}}
 <div>
     <div class="float-end">
@@ -48,7 +49,7 @@
 
                 <div class="d-flex justify-content-between mb-2 mr-5 listItem">
                     <div>
-                        <p>Sản phẩm: SP{{masp}}, {{tensp}}, {{giasp}}, {{size}}</p>
+                        <p>Sản phẩm: SP{{masp}}, {{tensp}}, {{giasp}}, {{size}}, {{color}}</p>
                     </div>
                     <div>
                         <img style="height: 50px ; withd:50px" src="{{avata}}">
@@ -59,11 +60,24 @@
 
 
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Trạng thái cần cập nhật</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                        name="trangthai" value="{{trangthai}}" autofocus>
-                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com"
-                        name="idhd" value="{{idhd}}" hidden>
+                    <p> Trạng thái đơn hàng:</p>
+                    <div class="d-flex statusUpdate">
+                        <div>
+                            <input type="radio" placeholder="name@example.com" name="trangthai" value="Chờ xác nhân">
+                            <label class="form-label">Chờ xác nhận</label>
+                        </div>
+                        <div>
+                            <input type="radio" placeholder="name@example.com" name="trangthai" value="Đang giao">
+                            <label class="form-label">Đang giao</label>
+                        </div>
+                        <div>
+                            <input type="radio" placeholder="name@example.com" name="trangthai"
+                                value="Giao hàng thành công">
+                            <label class="form-label">Giao hàng thành công</label>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="name@example.com" name="idhd" value="{{idhd}}"
+                        hidden>
                 </div>
                 <div class="d-flex justify-content-around mt-3">
                     <p class="tongtien">Tổng tiền: {{tongtien}}</p>

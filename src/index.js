@@ -1,4 +1,6 @@
+// const axios = require('axios');
 const express = require('express');
+var bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const port = 3001;
@@ -6,6 +8,9 @@ const morgan = require('morgan');
 const handlebar = require('express-handlebars');
 ////Sử dụng để lưu trữ thông tin đăng nhập
 const session = require('express-session')
+// sử dụng body parser
+app.use(bodyParser.json());
+
 app.set('trust proxy', 1)
 app.use(session({
   secret: 'keyboard cat',

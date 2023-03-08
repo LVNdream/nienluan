@@ -35,6 +35,7 @@ class payController {
         masp: req.body.masp[i],
         soluong: req.body.soluong[i],
         size: req.body.size[i],
+        color:req.body.color[i],
       }
       //console.log(chitiethdOJ);
       await payModel.addChitiethd(chitiethdOJ);

@@ -40,6 +40,7 @@ class adminController {
 
         }
       }
+      console.log(AllOrder);
     }
     else {
       issetHD_Admin = false;
@@ -67,7 +68,7 @@ class adminController {
   async updateStatus(req, res) {
     console.log(req.body);
     const kq = await adminModel.updateHD_Admin(req.body)
-    res.redirect('/admin/showdashboard')
+    res.redirect('/admin/showdashboard');
   };
   // hàm thêm sản phẩm
   async showAddproductAD(req, res) {
@@ -86,14 +87,30 @@ class adminController {
   async addProductAD(req, res) {
 
 
-    const entity = req.body;
-    //console.log(entity);
+    const entity = {
+      avata: req.body.avata,
+      tensp: req.body.tensp,
+      giasp: req.body.giasp,
+      soluongsp: req.body.soluongsp,
+    };
+    // console.log(entity);
     // res.send('post');
     //console.log(entity);
 
-    let kq = await adminModel.addProduct(entity);
+    let kq1 = await adminModel.addProduct(entity);
+    const rowsSP = await menfsModel.returnProduct();
+    //console.log(rowsHD);
+    for (var i = 0; i < req.body.mausac.length; i++) {
+      const chitiethdOJ = {
+        masp: rowsSP[rowsSP.length - 1].masp,
+        mausac: req.body.mausac[i],
+      }
+      //console.log(chitiethdOJ);
+      let kq2 = await adminModel.addChitietsp(chitiethdOJ);
+    }
     // const resultSave = await usersModel.addAccount(entity);
-    res.redirect('/fashion/menfashion')
+    // res.redirect('/fashion/menfashion');
+    res.send("da them thanh cong");
   };
   // hàm hủy hóa đơn của khách hàng
   // async deleteHD_KH(req, res) {

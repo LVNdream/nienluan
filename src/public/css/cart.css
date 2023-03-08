@@ -79,8 +79,16 @@ main {
 
 .productInCart--size {
   margin-bottom: 5px;
-  font-size: 15px;
-  font-weight: 400; }
+  font-size: 14px;
+  font-weight: 600; }
+
+.productInCart--color {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600; }
+
+.itemStyle {
+  gap: 15px; }
 
 .input--quantity {
   width: 35px;

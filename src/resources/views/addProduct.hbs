@@ -1,5 +1,6 @@
 {{#section 'css'}}
 <link rel="stylesheet" href="/css/checkOrdered.css">
+<link rel="stylesheet" href="/css/addsp.css">
 {{/section}}
 <div>
 
@@ -37,27 +38,33 @@
                 <div class="mb-3">
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Tên</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2"
-                             name="tensp">
+                        <input type="text" class="form-control" id="exampleFormControlInput2" name="tensp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Avata</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput3"
-                             name="avata">
+                        <input type="text" class="form-control" id="exampleFormControlInput3" name="avata">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput4" class="form-label">Giá</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput4"
-                             name="giasp">
+                        <input type="text" class="form-control" id="exampleFormControlInput4" name="giasp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput5" class="form-label">Số lượng sản phẩm</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput5"
-                             name="soluongsp">
+                        <input type="text" class="form-control" id="exampleFormControlInput5" name="soluongsp">
+                    </div>
+                    <div class="mb-1" id="aritcle--addcolor">
+                        <div>
+                            <label for="exampleFormControlInput6" class="form-label">Màu sắc 1</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput6" name="mausac">
+                        </div>
+                    </div>
+                    <div class="mt-1">
+                        <div id="addColor" class="addColor btn mt-1 "><i class="fa-solid fa-plus"></i></div>
+                        <div id="minusColor" class="addColor btn mt-1 "><i class="fa-solid fa-minus"></i> </div>
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-around mt-3">
+                <div class="d-flex justify-content-around mt-5">
                     <button class="btn btn-danger" type="submit">Thêm sản phẩm</button>
                 </div>
                 <hr>
@@ -67,3 +74,6 @@
     </div>
 
 </div>
+{{#section 'js'}}
+<script src="/js/addsp.js"></script>
+{{/section}}

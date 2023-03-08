@@ -141,9 +141,17 @@
   font-weight: 100; }
 
 .article--inforItem--size {
-  font-size: 16px;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 100; }
+  font-weight: 600; }
+
+.article--inforItem--color {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600; }
+
+.pay_itemStyle {
+  gap: 15px; }
 
 .article--inforItem--money {
   font-weight: 500;
