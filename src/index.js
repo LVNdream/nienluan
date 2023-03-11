@@ -11,6 +11,7 @@ const session = require('express-session')
 // sử dụng body parser
 app.use(bodyParser.json());
 
+
 app.set('trust proxy', 1)
 app.use(session({
   secret: 'keyboard cat',
@@ -25,13 +26,26 @@ app.use(session({
 const hbs_sections = require('express-handlebars-sections');
 
 //cách để phân trang các chức năng trên trang wed
-app.use(async function(req,res,next){
-  if(req.session.isAuthenticated === null){
+app.use(async function (req, res, next) {
+  if (req.session.isAuthenticated === null) {
     req.session.isAuthenticated = false;
   }
 
   res.locals.lcIsAuthenticated = req.session.isAuthenticated;
   res.locals.lcAuthUser = req.session.authUser;
+
+// AD đăng nhập thành công
+  if (req.session.isAD === null) {
+    req.session.isAD = false;
+  }
+
+  res.locals.lcisAD = req.session.isAD;
+  res.locals.lcinforAD = req.session.inforAD;
+  if(res.locals.lcisAD ||res.locals.lcIsAuthenticated){
+    res.locals.lcisLogined =true;
+  }
+
+
   next();
 })
 

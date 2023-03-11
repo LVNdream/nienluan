@@ -2,7 +2,8 @@
 const menfashionModel = require('../models/menfashionModel');
 const menfsModel = require('../models/menfashionModel');
 const accountController = require('../controllers/accountController');
-const e = require('express');
+
+
 class fashionController {
 
 
@@ -81,7 +82,7 @@ class fashionController {
     }
   }
 
-  // ham tra ve san pham yeu thich
+  // ham tra ve san pham chi tiet
   async showDetailproduct(req, res) {
     let emptyCTSP = false;
     let ctsp;
@@ -97,8 +98,8 @@ class fashionController {
         giasp: sanpham.giasp,
         soluongsp: sanpham.soluongsp,
       };
-      console.log(emptyCTSP);
-      console.log(ctsp);
+      // console.log(emptyCTSP);
+      // console.log(ctsp);
       res.render('detailProduct', {
         ctproduct: ctsp,
         empty: emptyCTSP,
@@ -109,6 +110,22 @@ class fashionController {
       return res.redirect(`/fashion/menfashion?retUrl=${req.originalUrl}`);
     }
 
+  }
+
+  //tạo hàm lưu file vào server
+  // UpLoadFile() {
+
+  //     return upload.single('file')
+  //   }
+
+
+
+  // upfile
+  upfile(req, res) {
+    console.log(req.files);
+    const picture = req.files;
+    res.render('test', { listpicture: picture })
+    // res.send(req.files[0].path)
   }
 
 }

@@ -12,13 +12,27 @@
                 <p>Không sản có sản phẩm được tải lên</p>
             </div>
             {{else}}
-            <div class="">
-                <img class="picture-product" src="{{ctproduct.avata}}" alt="" title="ÁO SƠ MI HỒNG TAY NGẮN TRẺ TRUNG">
+            <div class="article-picture-product">
+                <img class="picture-product" id="picture" src="{{ctproduct.avata}}" alt=""
+                    title="ÁO SƠ MI HỒNG TAY NGẮN TRẺ TRUNG">
+            </div>
+            <div class="row">
+                <div>
+                    <p class="note-size">- Vui lòng tham khảo “bảng quy đổi kích cỡ” và so sánh với số đo áo hoặc quần
+                        của bạn để chọn
+                        được size phù hợp nhất.</p>
+                </div>
+                <div>
+                    <p class="note-commit"> - Hình ảnh được chụp 100% từ sản phẩm thật, dưới ánh sáng tự nhiên và không
+                        qua chỉnh sửa để đảm
+                        bảo màu sắc trung thực nhất có thể (không tránh khỏi sai lệch từ 10-20% do thiết bị hiển thị).
+                    </p>
+                </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <h5 class="product-name">NOBITAHOME - {{ctproduct.tensp}} - LVN_SP{{ctproduct.masp}}</h5>
-            <p class="product-code"><b>Mã sản phẩm:</b> LVN_SP{{ctproduct.masp}}</p>
+            <h5 class="product-name" id="name">NOBITAHOME - {{ctproduct.tensp}} - LVN_SP{{ctproduct.masp}}</h5>
+            <p class="product-code" id="masp"><b>Mã sản phẩm:</b> LVN_SP{{ctproduct.masp}}</p>
             <div class="d-flex article-price">
                 <div class="product-discount">
                     <p class="discount-content">
@@ -26,14 +40,114 @@
                     </p>
                 </div>
                 <div class="product-price">
-                    <p class="price-content">{{ctproduct.giasp}}đ</p>
+                    <p class="price-content" id="price">{{ctproduct.giasp}}</p>
                 </div>
             </div>
-            <div class="mt-5">
-                <p>Màu sắc</p>
+            {{!-- khu vực chọn màu --}}
+            <div class=" d-flex article-color">
+                <p class="title-color">Màu sắc:</p>
+                <div class="d-flex article-color-option">
+                    {{#each this.ctproduct.listMau}}
+                    <div>
+                        <input type="radio" name="itemColor" value="{{mausac}}">
+                        <label>{{mausac}}</label><br>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{!-- Khu vực chọn size --}}
+            <div class=" d-flex article-size">
+                <div>
+                    <p class="title-size">Kich thước:</p>
+                </div>
+                <div class="d-flex article-size-option mt-2">
+                    <div>
+                        <input type="radio" id="size1" name="itemSize" value="S">
+                        <label for="size1">S</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="size2" name="itemSize" value="M">
+                        <label for="size2">M</label><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="size3" name="itemSize" value="L">
+                        <label for="size3">L</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="size4" name="itemSize" value="XL">
+                        <label for="size4">XL</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            {{!-- khu vực thêm yêu thích và them vao gio hang --}}
+            <div class="d-flex article-shopping">
+
+                <div class="article--iconFavorite">
+                    <i class="fa-solid fa-heart iconFavorite"></i>
+                </div>
+                <div class="productInCart--quantity d-flex">
+                    <button class="btnquantityDown" id="downquantity" name="down">-</button>
+                    <input class="input--quantity" id="inputquntity" type="number" name="quantity" value="1"
+                        max="{{ctproduct.soluongsp}}" disabled>
+                    <button class="btnquantityUp" id="upquantity" name="up">+</button>
+                </div>
+                <div>
+                    <button id="btn-addToCart" type="button" class="btn button-cart btn-lg">Thêm vào giỏ <i
+                            class="fa-solid fa-cart-shopping icon-cartShopping"></i></button>
+                </div>
+
+            </div>
+
+            <div>
+                <p class="title-advertisment">Số lượng có hạn, đã bán gần hết</p>
+            </div>
+            <hr>
+            {{!-- khu vuc thong tin san pham --}}
+            <div class="article-infor-product">
+                <p class="title-infor-szie">Thông tin sản phẩm:</p>
+                <div class="article-infor-product-size">
+                    <img class="infor-product-size"
+                        src="/img/thongtinsodo/7878_76506fa674ae4bc8abef415db42ab64a_1024x1024.png" alt="">
+                </div>
             </div>
 
         </div>
         {{/if}}
     </div>
-</div>
+    <hr>
+    <div>
+        <div>
+            <p>Đánh giá sản phẩm</p>
+            {{#if lcisLogined}}
+            <p>1234</p>
+            {{/if}}
+        </div>
+
+
+        <div>
+            <p>tên tác giả:</p>
+            <img src="" alt="">
+        </div>
+
+        <div>
+            <form action="/fashion/menfashion/product/{{ctproduct.masp}}" enctype="multipart/form-data" method="post">
+                <div id="article-upfile" class="d-flex">
+                    <label for="upFile"><i class="fa-solid fa-camera-retro"></i></label>
+                    <input id="upFile" name="file" class="input-image" type="file" accept="video/*,image/*"
+                        multiple="mutiple">
+
+                </div>
+                <div id="comment">
+                    <label for="comment">Nhận xét</label>
+                    <input id="comment" name="content" type="text" class="input-comment" placeholder="Viết nhận xét...">
+
+                </div>
+                <button type="submit">button</button>
+            </form>
+        </div>
+        {{#section 'js'}}
+        <script src="/js/detailProduct.js"></script>
+        {{/section}}

@@ -1,9 +1,29 @@
-.picture-product {
-    width: 550px;
-    height: 650px;
-    float: right;
+.article-picture-product {
+    text-align: right;
 }
 
+.picture-product {
+    width: 500px;
+    height: 530px;
+    // float: right;
+    margin-right: 60px;
+}
+
+// css cho cái cam kết
+.note-size {
+    margin-top: 16px;
+    font-size: 18px;
+    color: rgb(206, 141, 49);
+    font-style: italic;
+}
+
+.note-commit {
+    font-size: 18px;
+    color: rgb(206, 141, 49);
+    font-style: italic;
+}
+
+// 
 .tilte-main {
     width: 100%;
     height: 40px;
@@ -33,7 +53,7 @@
 
 .article-price {
     gap: 35px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .product-discount {
@@ -42,7 +62,8 @@
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
 }
-.discount-content{
+
+.discount-content {
     text-align: center;
     padding: auto;
     font-size: 18px;
@@ -50,13 +71,15 @@
     margin: 0;
     padding-top: 5px;
 }
+
 .product-price {
     height: 35px;
     width: 150px;
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
 }
-.price-content{
+
+.price-content {
     text-align: center;
     padding: auto;
     font-size: 22px;
@@ -64,4 +87,162 @@
     font-weight: 600;
     padding-bottom: 5px;
     margin: 0;
+}
+
+/// css cho cái chọn màu
+.title-color {
+    margin: 0;
+    gap: 20px;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(108, 108, 108);
+}
+
+.article-color {
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.article-color-option {
+    gap: 15px;
+    align-items: center;
+    margin-left: 25px;
+}
+
+// css cho cái chọn size
+.title-size {
+    margin: 0;
+    gap: 20px;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(108, 108, 108);
+}
+
+.article-size {
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.article-size-option {
+    gap: 15px;
+    align-items: center;
+}
+
+// css cho icons favorite 
+.iconFavorite {
+    color: rgb(200, 195, 195);
+    font-size: 34px;
+    margin-left: 20px;
+}
+
+.article-shopping {
+    gap: 30px;
+    align-items: center;
+}
+
+.icon-cartShopping {
+    font-size: 30px;
+    color: rgb(182, 135, 105);
+}
+
+.button-cart {
+    width: 300px;
+    border: 1px solid rgb(204, 59, 6);
+    font-family: inherit;
+    font-weight: 600;
+    color: rgb(164, 81, 29);
+}
+
+.button-cart:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(201, 139, 101);
+}
+
+.button-cart:hover .icon-cartShopping {
+    color: rgb(255, 255, 255);
+}
+
+.input--quantity {
+    width: 60px;
+    height: 50px;
+    border: 1px solid grey;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+}
+
+.btnquantityDown {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.btnquantityUp {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid grey;
+}
+.btnquantityDown:hover {
+   background-color: grey;
+}
+.btnquantityUp:hover {
+    background-color: grey;
+}
+
+//  css thong tin kich thuoc san pham 
+.title-advertisment {
+    padding-top: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: rgb(235, 204, 68);
+    font-weight: 600;
+    font-family: cursive;
+}
+
+.title-infor-szie {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: rgb(160, 129, 108);
+}
+
+.infor-product-size {
+    width: 375px;
+    height: 350px;
+
+}
+
+.article-infor-product-size {
+    text-align: center;
+}
+
+.article-infor-product {
+    // position: absolute;
+}
+
+
+
+.input-image{
+    display: none;
+    // width: 3px;
+}
+#article-upfile{
+    gap:15px;
+    margin-left: 80px;
+}
+#sum_item{
+    margin-bottom: 10px;
+}
+.input-comment{
+    height: 40px;
+    width: 300px;
+    border: 1px solid grey;
+    background-color: rgb(245, 244, 244);
+    border-radius:30px ;
+    padding: 0 20px;
 }

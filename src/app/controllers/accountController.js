@@ -74,6 +74,7 @@ class accountController {
       delete User.matkhau;
       req.session.isAD = true;
       req.session.inforAD = User;
+      
       //console.log(url);
       res.redirect('/admin/showdashboard')
     }
@@ -81,6 +82,7 @@ class accountController {
       delete User.matkhau;
       req.session.isAuthenticated = true;
       req.session.authUser = User;
+      
       const url = req.query.retUrl || req.headers.referer;
       //console.log(url);
       res.redirect(url)
