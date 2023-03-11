@@ -17,7 +17,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }); 
 
 
-
 // newsController.index
 router.get('/menfashion', fashionController.showMenfashion);
 router.post('/menfashion/addFavorite', fashionController.addFavorite);

@@ -126,11 +126,27 @@
             {{/if}}
         </div>
 
+        {{#if lcisLogined}}
 
-        <div>
-            <p>tên tác giả:</p>
-            <img src="" alt="">
+        {{#if emptyNX}}
+
+        <div class="mb-5">
+            {{#each ctnx}}
+        <div class="">
+            <div class="d-flex">
+                <p>{{ho}} {{ten}}: </p>
+                <p> {{content}}</p>
+            </div>
+            {{#each img}}
+            <img class="picture-comment" src="/img/uploaded/{{namepicture}}" alt="Đang xử lí">
+            {{/each}}
+            <hr>
         </div>
+        {{/each}}
+        </div>
+        {{else}}
+        <p>không có nhận xét</p>
+        {{/if}}
 
         <div>
             <form action="/fashion/menfashion/product/{{ctproduct.masp}}" enctype="multipart/form-data" method="post">
@@ -142,12 +158,15 @@
                 </div>
                 <div id="comment">
                     <label for="comment">Nhận xét</label>
-                    <input id="comment" name="content" type="text" class="input-comment" placeholder="Viết nhận xét...">
-
+                    <input id="comment" name="content" type="text" class="input-comment" placeholder="Viết nhận xét..."
+                        required>
                 </div>
+                <input id="comment" name="masp" type="text" class="input-comment" value="{{ctproduct.masp}}"
+                    readonly="true" hidden>
                 <button type="submit">button</button>
             </form>
         </div>
+        {{/if}}
         {{#section 'js'}}
         <script src="/js/detailProduct.js"></script>
         {{/section}}

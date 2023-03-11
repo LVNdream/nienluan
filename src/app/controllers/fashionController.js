@@ -85,9 +85,30 @@ class fashionController {
   // ham tra ve san pham chi tiet
   async showDetailproduct(req, res) {
     let emptyCTSP = false;
+    let emptyNX = false;
+    let arrayCTNX =[];
     let ctsp;
     const masp = req.params.id;
     const sanpham = await menfsModel.returnProductById(masp);
+    const arrayNX = await menfashionModel.returnNX_by_masp(masp);
+    // console.log(arrayNX);
+    // Lấy commnet từ khách
+    if(arrayNX.length>0){
+      emptyNX =true;
+      for (let index = 0; index < arrayNX.length; index++) {
+          // console.log(entity);
+          arrayCTNX[index]={
+            ho:arrayNX[index].ho,
+            ten:arrayNX[index].ten,
+            content:arrayNX[index].content,
+            img:await menfashionModel.returnIMG_By_idcontent(arrayNX[index].idcontent),
+          }
+      }
+    }
+
+
+
+    // lấy chi tiết sản phẩm
     if (sanpham) {
       emptyCTSP = true;
       ctsp = {
@@ -103,6 +124,8 @@ class fashionController {
       res.render('detailProduct', {
         ctproduct: ctsp,
         empty: emptyCTSP,
+        ctnx:arrayCTNX,
+        emptyNX:emptyNX,
       });
     }
     else {
@@ -121,11 +144,48 @@ class fashionController {
 
 
   // upfile
-  upfile(req, res) {
-    console.log(req.files);
-    const picture = req.files;
-    res.render('test', { listpicture: picture })
-    // res.send(req.files[0].path)
+  async upfile(req, res) {
+    let iduser;
+    let ho;
+    let ten;
+    if (req.session.isAuthenticated) {
+      iduser = res.locals.lcAuthUser.iduser;
+      ho = res.locals.lcAuthUser.ho;
+      ten = res.locals.lcAuthUser.ten;
+      
+    }
+    if (req.session.isAD) {
+      iduser = res.locals.lcinforAD.iduser;
+      ho = res.locals.lcinforAD.ho;
+      ten = res.locals.lcinforAD.ten;
+    }
+    const entityNX = {
+      iduser: iduser,
+      masp: req.body.masp,
+      ten:ten,
+      ho:ho,
+      content: req.body.content,
+    }
+    const addNX = await menfashionModel.addNhanxet(entityNX);
+    const arrayNX = await menfashionModel.returnNX();
+    let idcontent = arrayNX[arrayNX.length - 1].idcontent
+    const arrayImg = req.files;
+    // console.log(req.files.length)
+    // console.log(entityNX);
+    // console.log(addNX);
+    if (arrayImg.length > 0) {
+      for (let index = 0; index < arrayImg.length; index++) {
+        const entity = {
+          idcontent: idcontent,
+          namepicture: arrayImg[index].filename
+
+        }
+       const addImg = await menfashionModel.addNXpicture(entity);
+      }
+    }
+    if (addNX) {
+      return res.redirect(`${req.originalUrl}`);
+    }
   }
 
 }
