@@ -119,51 +119,62 @@
     </div>
     <hr>
     <div>
-        <div>
+        <div class=" d-flex justify-content-between article-notification">
             <p>Đánh giá sản phẩm</p>
-            {{#if lcisLogined}}
-            <p>1234</p>
-            {{/if}}
+
+            <div class="alert alert-danger" role="alert">
+                <p>Để đánh giá sản phẩm vui lòng bạn hãy đăng nhập</p>
+            </div>
         </div>
 
-        {{#if lcisLogined}}
+
 
         {{#if emptyNX}}
 
-        <div class="mb-5">
+        <div class="mb-3 aritcle-infor-comment">
             {{#each ctnx}}
-        <div class="">
-            <div class="d-flex">
-                <p>{{ho}} {{ten}}: </p>
-                <p> {{content}}</p>
+            <div class="">
+                <div class="d-flex align-items-center">
+                    <div class="d-flex article-comment-content">
+                        <img class="avata" src="/img/uploaded/avatar-trang-y-nghia.webp" alt="">
+                        <p class="writer">{{ho}} {{ten}}: </p>
+                        <p class="comment-content"> {{content}}</p>
+                    </div>
+                    <div class="icon-edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                </div>
+                {{#each img}}
+                <img class="picture-comment" src="/img/uploaded/{{namepicture}}" alt="Đang xử lí">
+                {{/each}}
+                <hr>
             </div>
-            {{#each img}}
-            <img class="picture-comment" src="/img/uploaded/{{namepicture}}" alt="Đang xử lí">
             {{/each}}
-            <hr>
-        </div>
-        {{/each}}
         </div>
         {{else}}
         <p>không có nhận xét</p>
         {{/if}}
-
+        {{#if lcisLogined}}
         <div>
             <form action="/fashion/menfashion/product/{{ctproduct.masp}}" enctype="multipart/form-data" method="post">
-                <div id="article-upfile" class="d-flex">
-                    <label for="upFile"><i class="fa-solid fa-camera-retro"></i></label>
-                    <input id="upFile" name="file" class="input-image" type="file" accept="video/*,image/*"
-                        multiple="mutiple">
+                <div class="d-flex article_input-infor">
+                    <div>
+                        <div id="article-upfile">
+                            <label for="upFile"><i class="fa-solid fa-camera-retro"></i></label>
+                            <input id="upFile" name="file" class="input-image" type="file" accept="video/*,image/*"
+                                multiple="mutiple">
 
+                        </div>
+                        <div id="comment">
+                            <label for="comment"><b>Nhận xét</b></label>
+                            <input id="comment" name="content" type="text" class="input-comment"
+                                placeholder="Viết nhận xét..." required>
+                        </div>
+                        <input id="comment" name="masp" type="text" class="input-comment" value="{{ctproduct.masp}}"
+                            readonly="true" hidden>
+                    </div>
+                    <button class="btn-post" type="submit">Đăng</button>
                 </div>
-                <div id="comment">
-                    <label for="comment">Nhận xét</label>
-                    <input id="comment" name="content" type="text" class="input-comment" placeholder="Viết nhận xét..."
-                        required>
-                </div>
-                <input id="comment" name="masp" type="text" class="input-comment" value="{{ctproduct.masp}}"
-                    readonly="true" hidden>
-                <button type="submit">button</button>
             </form>
         </div>
         {{/if}}

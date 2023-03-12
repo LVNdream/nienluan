@@ -240,7 +240,7 @@
 }
 .input-comment{
     height: 40px;
-    width: 300px;
+    width: 600px;
     border: 1px solid grey;
     background-color: rgb(245, 244, 244);
     border-radius:30px ;
@@ -250,4 +250,54 @@
 .picture-comment{
     width: 100px;
     height: 100px;
+}
+// css cho trang tác giả à nội dung comment
+.article-notification{
+    align-items: center;
+}
+.aritcle-infor-comment {
+    border: 3px solid #c49d5a;
+    width: 100%;
+    height: 600px;
+    padding: 20px;
+    overflow: scroll;
+}
+.article-comment-content{
+    background-color: rgb(244, 244, 244);
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    gap:10px;
+    align-items: center;
+}
+.comment-content{
+    margin-bottom: 0px;
+    
+}
+.writer{
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.avata{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.icon-edit{
+    font-size: 20px;
+    padding-left: 10px;
+}
+.article_input-infor{
+    align-items: end;
+}
+.btn-post{
+    color: white;
+    border-radius: 5px;
+    width: 50px;
+    height: 35px;
+    background-color:#9c6402 ;
+    margin-left: 3px;
+    margin-bottom: 2px;
+    border: none;
 }

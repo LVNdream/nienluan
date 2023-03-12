@@ -4,7 +4,7 @@ let upFile = document.getElementById('upFile');
 let article_upfile = $('#article-upfile');
 
 upFile.addEventListener('change', function () {
-    console.log(upFile.files.length);
+    // console.log(upFile.files.length);
     if ($('#sum_item')) {
         $('#sum_item').remove();
         article_upfile.append($(`<p id="sum_item">Đã dính kèm ${upFile.files.length} tệp</p>`));
@@ -28,7 +28,7 @@ const btnUp = document.getElementById('upquantity');
 const btnDown = document.getElementById('downquantity');
 let inputquantity = document.getElementById('inputquntity');
 // inputquantity.value=parseInt(inputquantity.value) +1;
-console.log(inputquantity.max);
+// console.log(inputquantity.max);
 btnUp.addEventListener('click', function () {
     if (parseInt(inputquantity.value) < inputquantity.max) {
         inputquantity.value = parseInt(inputquantity.value) + 1;
