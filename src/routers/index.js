@@ -8,7 +8,7 @@ const admin = require('./admin');
 
 function router(app) {
 
-
+    
     app.use('/home', homeRouter);
 
     app.use('/fashion', fashionRouter);

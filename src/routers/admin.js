@@ -3,6 +3,8 @@ const router = express.Router();
 const adminController = require('../app/controllers/adminController');
 
 router.get('/showdashboard', adminController.restrictAD,adminController.showAdmin);
+router.post('/showOrder/filterByDate', adminController.restrictAD,adminController.showOrderFilterByDate);
+router.post('/showOrder/filterByMonth', adminController.restrictAD,adminController.showOrderFilterByMonth);
 ///////////////////// đơn hàng
 router.post('/logoutAD', adminController.restrictAD,adminController.logoutAD);
 router.post('/showdashboard/updateStatus', adminController.restrictAD,adminController.updateStatus);

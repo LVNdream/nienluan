@@ -154,8 +154,10 @@ header {
 
 .search-in-input {
   position: absolute;
-  bottom: 5px;
-  right: 40px; }
+  bottom: 0;
+  right: 40px;
+  border: none;
+  color: #ab7534; }
 
 .search-in-input:hover {
   cursor: pointer; }

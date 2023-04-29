@@ -90,9 +90,11 @@
                     <h3>Tìm kiếm</h3>
                     <hr>
                     <div class="formsearch__input">
-                        <input type="text" id="inputsearch5" class="form-control"
-                            placeholder="Nhập sản phẩm cần tìm... ">
-                        <i class="fa-solid fa-magnifying-glass search-in-input"></i>
+                        <form method="GET" action="/fashion/searchMenfashion">
+                            <input type="text" id="inputsearch5" name="tensp" class="form-control"
+                                placeholder="Nhập sản phẩm cần tìm... ">
+                            <button class="search-in-input"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
                     </div>
                     <div id="cancle--search">
                         <p class="text--cancle--search">x</p>

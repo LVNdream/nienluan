@@ -7,7 +7,7 @@ const port = 3001;
 const morgan = require('morgan');
 const handlebar = require('express-handlebars');
 ////Sử dụng để lưu trữ thông tin đăng nhập
-const session = require('express-session')
+const session = require('express-session');
 // sử dụng body parser
 app.use(bodyParser.json());
 

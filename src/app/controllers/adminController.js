@@ -47,6 +47,89 @@ class adminController {
     }
     res.render('admin', { AllOrder, issetHD_Admin });
   };
+
+
+  // Show order theo filter
+  async showOrderFilterByDate(req, res) {
+    let AllOrderByDate = [];
+    let issetHD_ByDate_Admin = false;
+    if (req.body.ngay) {
+      const order = await adminModel.selectOrderByDate(req.body.ngay);
+      if (order != null) {
+        issetHD_ByDate_Admin = true;
+        for (let i = 0; i < order.length; i++) {
+          // console.log(value);
+          AllOrderByDate[i] = {
+            listItem: await adminModel.selectCTHD(order[i].idhd),
+            idhd: order[i].idhd,
+            hovaten: order[i].hovaten,
+            ngaylaphd: order[i].ngaylaphd,
+            diachichitiet: order[i].diachichitiet,
+            nhanhang: order[i].nhanhang,
+            trangthai: order[i].trangthai,
+            tongtien: order[i].tongtien,
+
+          }
+        }
+        // console.log(AllOrderByDate);
+        res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+      }
+      else {
+        res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+      }
+    }
+    else {
+      res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+    }
+  };
+
+  // Ham tim hoa don theo thang
+  async showOrderFilterByMonth(req, res) {
+    let AllOrderByDate = [];
+    let issetHD_ByDate_Admin = false;
+    if (req.body.thang) {
+      const monthOfYear=req.body.thang;
+      console.log(monthOfYear);
+      console.log(req.body.thang)
+      const year = monthOfYear.slice(0,monthOfYear.indexOf("-"));
+      const month = monthOfYear.slice(monthOfYear.indexOf("-")+1,monthOfYear.length);
+      console.log(year);
+      console.log(month);
+      const order = await adminModel.selectOrderByMonth(month,year);
+      // console.log(order);
+      if (order != null) {
+        issetHD_ByDate_Admin = true;
+        for (let i = 0; i < order.length; i++) {
+          // console.log(value);
+          AllOrderByDate[i] = {
+            listItem: await adminModel.selectCTHD(order[i].idhd),
+            idhd: order[i].idhd,
+            hovaten: order[i].hovaten,
+            ngaylaphd: order[i].ngaylaphd,
+            diachichitiet: order[i].diachichitiet,
+            nhanhang: order[i].nhanhang,
+            trangthai: order[i].trangthai,
+            tongtien: order[i].tongtien,
+
+          }
+        }
+        // console.log(AllOrderByDate);
+        res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+      }
+      else {
+        res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+      }
+    }
+    else {
+      res.render('admin', { AllOrder: AllOrderByDate, issetHD_Admin: issetHD_ByDate_Admin });
+    }
+  };
+
+
+
+
+
+
   /////////////////////////// hàm update sản phẩm
 
   async showUpdateProductAD(req, res) {

@@ -22,5 +22,6 @@ router.get('/menfashion', fashionController.showMenfashion);
 router.post('/menfashion/addFavorite', fashionController.addFavorite);
 router.get('/menfashion/product/:id', fashionController.showDetailproduct);
 router.post('/menfashion/product/:id',upload.any(),fashionController.upfile);
+router.get('/searchMenfashion/', fashionController.showSearchMenfashion);
 
 module.exports = router;

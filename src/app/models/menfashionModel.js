@@ -7,6 +7,9 @@ module.exports = {
     returnProduct: function () {
         return db.load(`SELECT * from ${TBL_product}`);
     },
+    returnProductByName: function (tensp) {
+        return db.load(`SELECT * from ${TBL_product} where tensp like '%${tensp}%'`);
+    },
     returnProductById: async function (masp) {
         const rowPD = await db.load(`select * from ${TBL_product} where masp = '${masp}'`);
         if (rowPD.length === 0) {

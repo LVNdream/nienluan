@@ -13,6 +13,7 @@ class fashionController {
     let productCT = [];
     const rows = await menfsModel.returnProduct();
     let rowFVR = [];
+    // console.log(res.locals.lcAuthUser,'sadadsas')
     if (res.locals.lcIsAuthenticated) {
       rowFVR = await menfsModel.returnAllFavorite();
       // console.log(rowFVR);
@@ -23,7 +24,7 @@ class fashionController {
       // them so yeu thich
       if (rowFVR != null) {
         for (let j = 0; j < rowFVR.length; j++) {
-          if (rowFVR[j].masp == rows[i].masp) {
+          if (rowFVR[j].masp == rows[i].masp && res.locals.lcAuthUser.iduser == rowFVR[j].iduser) {
             index = 1;
           }
         }
@@ -47,6 +48,60 @@ class fashionController {
       });
   }
 
+  // Show cac san pham duoc tim kiem
+  async showSearchMenfashion(req, res) {
+    //const rowPDCT = await menfsModel.returnProduct();
+
+    let serachProductCT = [];
+    if (req.query.tensp) {
+      const rows = await menfsModel.returnProductByName(req.query.tensp);
+      if (rows.length != 0) {
+        let searchRowFVR = [];
+        // console.log(res.locals.lcAuthUser,'sadadsas')
+        if (res.locals.lcIsAuthenticated) {
+          searchRowFVR = await menfsModel.returnAllFavorite();
+          // console.log(searchRowFVR);
+        }
+
+        for (let i = 0; i < rows.length; i++) {
+          let index = null;
+          // them so yeu thich
+          if (searchRowFVR != null) {
+            for (let j = 0; j < searchRowFVR.length; j++) {
+              if (searchRowFVR[j].masp == rows[i].masp && res.locals.lcAuthUser.iduser == searchRowFVR[j].iduser) {
+                index = 1;
+              }
+            }
+          }
+          // console.log(index);
+          serachProductCT[i] = {
+            listMau: await menfashionModel.returnCtProduct(rows[i].masp),
+            avata: rows[i].avata,
+            masp: rows[i].masp,
+            tensp: rows[i].tensp,
+            giasp: rows[i].giasp,
+            soluongsp: rows[i].soluongsp,
+            favorite: index,
+          }
+        }
+        // console.log(serachProductCT);
+        res.render('menfashion',
+          {
+            product: serachProductCT,
+            empty: rows.length === 0
+          });
+      }
+      else {
+        res.render('menfashion',
+          {
+            product: serachProductCT,
+            empty: rows.length === 0
+          });
+      }
+    }
+
+  }
+
 
   // showMenfashion(req, res) {
   //   // const rows = await db.load('SELECT * from product');
@@ -64,7 +119,7 @@ class fashionController {
       const listfavorite = await menfsModel.returnAllFavorite();
 
       listfavorite.forEach(element => {
-        if (element.masp == req.body.masp) {
+        if (element.masp == req.body.masp && element.iduser == res.locals.lcAuthUser.iduser) {
           isExsit = 1;
           console.log('da trung')
           return isExsit;
@@ -86,23 +141,23 @@ class fashionController {
   async showDetailproduct(req, res) {
     let emptyCTSP = false;
     let emptyNX = false;
-    let arrayCTNX =[];
+    let arrayCTNX = [];
     let ctsp;
     const masp = req.params.id;
     const sanpham = await menfsModel.returnProductById(masp);
     const arrayNX = await menfashionModel.returnNX_by_masp(masp);
     // console.log(arrayNX);
     // Lấy commnet từ khách
-    if(arrayNX.length>0){
-      emptyNX =true;
+    if (arrayNX.length > 0) {
+      emptyNX = true;
       for (let index = 0; index < arrayNX.length; index++) {
-          // console.log(entity);
-          arrayCTNX[index]={
-            ho:arrayNX[index].ho,
-            ten:arrayNX[index].ten,
-            content:arrayNX[index].content,
-            img:await menfashionModel.returnIMG_By_idcontent(arrayNX[index].idcontent),
-          }
+        // console.log(entity);
+        arrayCTNX[index] = {
+          ho: arrayNX[index].ho,
+          ten: arrayNX[index].ten,
+          content: arrayNX[index].content,
+          img: await menfashionModel.returnIMG_By_idcontent(arrayNX[index].idcontent),
+        }
       }
     }
 
@@ -124,8 +179,8 @@ class fashionController {
       res.render('detailProduct', {
         ctproduct: ctsp,
         empty: emptyCTSP,
-        ctnx:arrayCTNX,
-        emptyNX:emptyNX,
+        ctnx: arrayCTNX,
+        emptyNX: emptyNX,
       });
     }
     else {
@@ -152,7 +207,7 @@ class fashionController {
       iduser = res.locals.lcAuthUser.iduser;
       ho = res.locals.lcAuthUser.ho;
       ten = res.locals.lcAuthUser.ten;
-      
+
     }
     if (req.session.isAD) {
       iduser = res.locals.lcinforAD.iduser;
@@ -162,8 +217,8 @@ class fashionController {
     const entityNX = {
       iduser: iduser,
       masp: req.body.masp,
-      ten:ten,
-      ho:ho,
+      ten: ten,
+      ho: ho,
       content: req.body.content,
     }
     const addNX = await menfashionModel.addNhanxet(entityNX);
@@ -180,7 +235,7 @@ class fashionController {
           namepicture: arrayImg[index].filename
 
         }
-       const addImg = await menfashionModel.addNXpicture(entity);
+        const addImg = await menfashionModel.addNXpicture(entity);
       }
     }
     if (addNX) {

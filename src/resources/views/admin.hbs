@@ -31,6 +31,20 @@
 
     <div id="aritcle__infor" class="container">
         {{#if issetHD_Admin}}
+        <div class="d-flex filter_order mb-2">
+            <form action="/admin/showOrder/filterByDate" method="POST">
+                <input type="date" name="ngay">
+                <button class="btn-design btn-info btn-sizebtn">Tìm</button>
+            </form>
+            <form action="/admin/showOrder/filterByMonth" method="POST">
+                <input type="month" name="thang" aria-placeholder="asdasdsa">
+                <button class="btn-design btn-info btn-sizebtn">Tìm</button>
+            </form>
+            <form action="/admin/showOrder/filter" method="POST">
+                <input type="week" name="ngay">
+                <button class="btn-design btn-info btn-sizebtn">Tìm</button>
+            </form>
+        </div>
         {{#each AllOrder}}
         <form action="/admin/showdashboard/updateStatus" method="post">
             <div class="inforOrder">
