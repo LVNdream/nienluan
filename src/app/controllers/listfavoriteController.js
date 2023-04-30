@@ -6,7 +6,7 @@ class listfavoriteController {
 
   async showlistFavorite(req, res) {
     let productFVR = [];
-    const rows = await favoriteModel.returnAllFavorite();
+    const rows = await favoriteModel.returnAllFavoriteByUser(res.locals.lcAuthUser.iduser);
 
     for (let i = 0; i < rows.length; i++) {
 

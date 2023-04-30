@@ -102,7 +102,7 @@
             </div>
 
             <div>
-                <p class="title-advertisment">Số lượng có hạn, đã bán gần hết</p>
+                <p class="title-advertisment">Số lượng có hạn, đã bán gần hết, Số lượng: {{ctproduct.soluongsp}}</p>
             </div>
             <hr>
             {{!-- khu vuc thong tin san pham --}}
@@ -140,9 +140,11 @@
                         <p class="writer">{{ho}} {{ten}}: </p>
                         <p class="comment-content"> {{content}}</p>
                     </div>
+                    {{#if isAuthCmt}}
                     <div class="icon-edit">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
+                    {{/if}}
                 </div>
                 {{#each img}}
                 <img class="picture-comment" src="/img/uploaded/{{namepicture}}" alt="Đang xử lí">

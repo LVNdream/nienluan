@@ -10,4 +10,7 @@ module.exports = {
     deleteFavorite: async function (iduser,masp) {
         return db.delete(TBL_ListFavorite,iduser,masp);
     },
+    returnAllFavoriteByUser: function (iduser) {
+        return db.load(`SELECT * from listfavorite where iduser='${iduser}'`);
+    },
 };

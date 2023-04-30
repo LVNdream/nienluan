@@ -125,6 +125,49 @@ class adminController {
     }
   };
 
+  // ham tra ve hoa donw theo tuan
+  async showOrderFilterByWeek(req, res) {
+    // console.log(req.body.tuan);
+    let AllOrderByWeek = [];
+    let issetHD_ByWeek_Admin = false;
+    if (req.body.tuan) {
+      const weekOfYear=req.body.tuan;
+      // console.log(weekOfYear);
+      // console.log(req.body.thang)
+      const week = weekOfYear.slice(weekOfYear.indexOf("W")+1,weekOfYear.length);
+      // console.log(year);
+      // console.log(week);
+      const order = await adminModel.selectOrderByWeek(week);
+      // console.log(order);
+      if (order != null) {
+        issetHD_ByWeek_Admin = true;
+        for (let i = 0; i < order.length; i++) {
+          // console.log(value);
+          AllOrderByWeek[i] = {
+            listItem: await adminModel.selectCTHD(order[i].idhd),
+            idhd: order[i].idhd,
+            hovaten: order[i].hovaten,
+            ngaylaphd: order[i].ngaylaphd,
+            diachichitiet: order[i].diachichitiet,
+            nhanhang: order[i].nhanhang,
+            trangthai: order[i].trangthai,
+            tongtien: order[i].tongtien,
+
+          }
+        }
+        // console.log(AllOrderByDate);
+        res.render('admin', { AllOrder: AllOrderByWeek, issetHD_Admin: issetHD_ByWeek_Admin });
+      }
+      else {
+        res.render('admin', { AllOrder: AllOrderByWeek, issetHD_Admin: issetHD_ByWeek_Admin });
+      }
+    }
+    else {
+      res.render('admin', { AllOrder: AllOrderByWeek, issetHD_Admin: issetHD_ByWeek_Admin });
+    }
+  };
+
+
 
 
 
@@ -136,6 +179,18 @@ class adminController {
     const AllProduct = await menfsModel.returnProduct();
     //console.log(order);
     res.render('updateProduct', { AllProduct });
+  };
+  async showUpdateProductAdFilter(req, res) {
+    console.log(req.body)
+    if(req.body.tensanpham!=''){
+    const AllProduct = await menfsModel.returnProductByName(req.body.tensanpham);
+    // console.log(AllProduct); 
+    res.render('updateProduct', { AllProduct });
+    }
+    else{
+      res.redirect('/admin/updateproduct')
+    }
+    
   };
 
 
@@ -160,7 +215,7 @@ class adminController {
   };
 
   async updateSLProductAD(req, res) {
-    //console.log(req.body);
+    console.log(req.body.masp);
     const kq = await adminModel.updateQuanlityProduct(req.body)
     res.redirect('/admin/updateproduct')
   };

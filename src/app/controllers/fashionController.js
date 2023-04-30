@@ -143,6 +143,7 @@ class fashionController {
     let emptyNX = false;
     let arrayCTNX = [];
     let ctsp;
+    let isAuthCmt=false;
     const masp = req.params.id;
     const sanpham = await menfsModel.returnProductById(masp);
     const arrayNX = await menfashionModel.returnNX_by_masp(masp);
@@ -151,18 +152,27 @@ class fashionController {
     if (arrayNX.length > 0) {
       emptyNX = true;
       for (let index = 0; index < arrayNX.length; index++) {
-        // console.log(entity);
+        if(res.locals.lcIsAuthenticated){
+          // console.log(res.lcAuthUser.iduser)
+          // console.log(arrayNX[index].iduser)
+
+          if(res.locals.lcAuthUser.iduser==arrayNX[index].iduser){
+            isAuthCmt=true;
+          }
+          else{
+            isAuthCmt=false;
+          }
+        }
+        console.log(isAuthCmt);
         arrayCTNX[index] = {
           ho: arrayNX[index].ho,
           ten: arrayNX[index].ten,
           content: arrayNX[index].content,
           img: await menfashionModel.returnIMG_By_idcontent(arrayNX[index].idcontent),
+          isAuthCmt:isAuthCmt
         }
       }
     }
-
-
-
     // lấy chi tiết sản phẩm
     if (sanpham) {
       emptyCTSP = true;

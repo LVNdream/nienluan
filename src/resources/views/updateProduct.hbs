@@ -30,6 +30,16 @@
     </div>
 
     <div id="aritcle__infor" class="container">
+        <form action="/admin/updateproduct/filter" method="post">
+            <div>
+                <div class="mb-3">
+                    <input type="text" placeholder="Nhập tên sản phẩm"
+                        name="tensanpham" value="">
+                    <button class="btn btn-info" type="submit">Tìm</button>
+                </div>
+            </div>
+
+        </form>
         {{#if AllProduct}}
         {{#each AllProduct}}
         <form action="/admin/showdashboard/updateProduct" method="post">
@@ -40,22 +50,22 @@
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Mã sẩn phẩm</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com" name="masp" value="SPNS{{masp}}" disabled >
+                            placeholder="name@example.com" name="masp" value="{{masp}}" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Tên</label>
                         <input type="text" class="form-control" id="exampleFormControlInput2"
-                            placeholder="name@example.com" value="{{tensp}}">
+                            placeholder="name@example.com" name="tensp" value="{{tensp}}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Avata</label>
                         <input type="text" class="form-control" id="exampleFormControlInput3"
-                            placeholder="name@example.com" value="{{avata}}">
+                            placeholder="name@example.com" name="avata" value="{{avata}}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput4" class="form-label">Giá</label>
                         <input type="text" class="form-control" id="exampleFormControlInput4"
-                            placeholder="name@example.com" value="{{giasp}}">
+                            placeholder="name@example.com" name="giasp" value="{{giasp}}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput5" class="form-label">Số lượng sản phẩm</label>
@@ -76,7 +86,7 @@
         {{/each}}
         {{else}}
         <div>
-            Bạn chưa sản phẩm
+            Không tìm thấy sản phẩm
         </div>
         {{/if}}
     </div>

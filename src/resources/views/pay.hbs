@@ -64,7 +64,7 @@
                                 {{!-- Cái để chọn tỉnh thành --}}
                                 <div class="d-flex choose--province">
                                     <select class="form-select form-select-sm" id="city" aria-label=".form-select-sm">
-                                        <option class="option_located" value="" selected >Chọn tỉnh thành</option>
+                                        <option class="option_located" value="" selected>Chọn tỉnh thành</option>
                                     </select>
 
                                     <select class="form-select form-select-sm" id="district"
@@ -203,13 +203,17 @@
     </div>
 </main>
 {{#if announce}}
-    <script>
-        alert('Bạn đã đặt hàng thành công');
-        const arrayNull = [];
-        localStorage.setItem('cartItems', JSON.stringify(arrayNull));
+<script>
+    alert('Bạn đã đặt hàng thành công');
+    const arrayNull = [];
+    localStorage.setItem('cartItems', JSON.stringify(arrayNull));
         //window.location.reload();
-        
-    </script>
+
+</script>
+{{else if announceError}}
+<script>
+    alert('Đã có sản phẩm không đủ số lượng');
+</script>
 {{/if}}
 
 {{#section 'js'}}

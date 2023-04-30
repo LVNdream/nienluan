@@ -41,6 +41,13 @@ module.exports = {
         }
         return rowOrder;
     },
+    selectOrderByWeek: async function (week) {
+        const rowOrder = await db.load(`select * from ${TBL_ORDERS} where weekofyear(ngaylaphd)='${week}' `);
+        if (rowOrder.length === 0) {
+            return null;
+        }
+        return rowOrder;
+    },
 
     /// cập nhật hóa đơn bên admin
 

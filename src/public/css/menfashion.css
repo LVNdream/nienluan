@@ -23,6 +23,10 @@
   font-size: 14px;
   gap: 13px; }
 
+.item-quantity {
+  margin-top: 5px;
+  font-size: 17px; }
+
 .color--selection {
   font-size: 14px;
   gap: 13px; }

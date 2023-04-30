@@ -3,16 +3,18 @@ let upFile = document.getElementById('upFile');
 // console.log(upFile);
 let article_upfile = $('#article-upfile');
 
-upFile.addEventListener('change', function () {
-    // console.log(upFile.files.length);
-    if ($('#sum_item')) {
-        $('#sum_item').remove();
-        article_upfile.append($(`<p id="sum_item">Đã dính kèm ${upFile.files.length} tệp</p>`));
-    } else {
-        article_upfile.append($(`<p id="sum_item">Đã dính kèm ${upFile.files.length} tệp</p>`));
-    }
+if (upFile) {
+    upFile.addEventListener('change', function () {
+        // console.log(upFile.files.length);
+        if ($('#sum_item')) {
+            $('#sum_item').remove();
+            article_upfile.append($(`<p id="sum_item">Đã dính kèm ${upFile.files.length} tệp</p>`));
+        } else {
+            article_upfile.append($(`<p id="sum_item">Đã dính kèm ${upFile.files.length} tệp</p>`));
+        }
 
-})
+    })
+}
 
 
 
